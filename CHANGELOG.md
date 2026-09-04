@@ -6,6 +6,31 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 
 ### Geplant
 
+- CO₂-Emissionsdatensatz
+- dynamische Emissionstabelle
+- Filterung und Sortierung
+- Unterstützung von LTR und RTL
+- sichere Verarbeitung von Eingaben
+- weitere Optimierung des Responsive Designs
+- Tests und Projektdokumentation
+
+## [0.3.0] - 2026-09-04
+
+### Hinzugefügt
+
+- CarbonScope-Logo
+- Header mit globaler Navigation
+- responsive Bootstrap-Navigation
+- lokale Seitennavigation
+- strukturierter Hauptinhaltsbereich
+- Footer mit rechtlichen Hinweisen
+- grundlegendes projektspezifisches Styling
+- Platzhalter für die spätere CO₂-Emissionstabelle
+
+## [Unreleased]
+
+### Geplant
+
 - sichtbares Grundlayout mit Header, Navigation und Footer
 - CO₂-Emissionsdatensatz
 - Filterung und Sortierung

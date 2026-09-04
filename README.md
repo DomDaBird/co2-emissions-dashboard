@@ -7,19 +7,23 @@ Das Projekt entsteht im Rahmen des IU-Kurses
 
 ## Projektstatus
 
-Technisches Grundgerüst der Webanwendung erstellt.
+Grundlayout und zentrale Seitenstruktur umgesetzt.
 
-Aktuelle Version: `v0.2.0`
+Aktuelle Version: `v0.3.0`
 
 ### Aktueller Entwicklungsstand
 
 - Projektplanung abgeschlossen
-- Repository-Struktur angelegt
 - HTML5-Grundgerüst erstellt
 - Bootstrap 5 eingebunden
-- projektspezifisches CSS und JavaScript verknüpft
+- CarbonScope-Logo integriert
+- Header und globale Navigation umgesetzt
+- lokale Seitennavigation umgesetzt
+- Hauptinhaltsbereich strukturiert
+- Footer mit rechtlichen Hinweisen ergänzt
+- grundlegendes projektspezifisches Styling umgesetzt
 
-Als nächster Schritt wird das sichtbare Grundlayout mit Header, Navigation, Hauptbereich und Footer umgesetzt.
+Als nächster Schritt wird ein fiktiver CO₂-Emissionsdatensatz erstellt und dynamisch in einer Tabelle dargestellt.
 
 ## Geplante Funktionen
 
