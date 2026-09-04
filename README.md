@@ -7,9 +7,19 @@ Das Projekt entsteht im Rahmen des IU-Kurses
 
 ## Projektstatus
 
-Planung und Projektinitialisierung
+Technisches Grundgerüst der Webanwendung erstellt.
 
-Aktuelle Version: `v0.1.0`
+Aktuelle Version: `v0.2.0`
+
+### Aktueller Entwicklungsstand
+
+- Projektplanung abgeschlossen
+- Repository-Struktur angelegt
+- HTML5-Grundgerüst erstellt
+- Bootstrap 5 eingebunden
+- projektspezifisches CSS und JavaScript verknüpft
+
+Als nächster Schritt wird das sichtbare Grundlayout mit Header, Navigation, Hauptbereich und Footer umgesetzt.
 
 ## Geplante Funktionen
 
