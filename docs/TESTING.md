@@ -8,6 +8,7 @@ Während der Entwicklung werden folgende Bereiche überprüft:
 
 - Funktionalität
 - Filterung und Sortierung
+- Schriftkulturen und Position der lokalen Navigation
 - Responsive Design
 - Browserkompatibilität
 - sichere Verarbeitung von Benutzereingaben
@@ -25,11 +26,9 @@ Zusätzlich werden unterschiedliche Bildschirmgrößen über die Entwicklerwerkz
 
 ## 3. Aktueller Status
 
-Die Grundstruktur der Webanwendung, die dynamische Darstellung der fiktiven CO₂-Emissionsdaten sowie die Filter- und Sortierfunktionen sind umgesetzt.
+Die Grundstruktur der Webanwendung, die dynamische Darstellung der fiktiven CO₂-Emissionsdaten, die Filter- und Sortierfunktionen sowie die Berücksichtigung unterschiedlicher Schriftkulturen sind umgesetzt.
 
 Während der Entwicklung werden grundlegende Funktionsprüfungen durchgeführt. Eine vollständige und systematisch dokumentierte Testphase ist für Version `v0.9.0` vorgesehen.
-
-Die nachfolgenden Testfälle dienen als Grundlage für die Überprüfung der in Version `v0.5.0` implementierten Filter- und Sortierfunktionen.
 
 ## 4. Funktionstests für Filterung und Sortierung
 
@@ -50,7 +49,18 @@ Die nachfolgenden Testfälle dienen als Grundlage für die Überprüfung der in 
 | FT-13 | Spalte „CO₂-Emissionen“ erneut auswählen | Numerische Sortierrichtung wird umgekehrt | Offen |
 | FT-14 | Filter anwenden und anschließend sortieren | Nur gefilterte Datensätze werden sortiert | Offen |
 
-## 5. Responsive Tests
+## 5. Tests der Schriftkultur
+
+| ID | Testfall | Erwartetes Ergebnis | Status |
+|---|---|---|---|
+| SK-01 | Schriftkultur LTR auswählen | Lokale Navigation wird links vom Hauptinhalt dargestellt | Bestanden |
+| SK-02 | Schriftkultur RTL auswählen | Lokale Navigation wird rechts vom Hauptinhalt dargestellt | Bestanden |
+| SK-03 | Zwischen LTR und RTL wechseln | Nur die Position der lokalen Navigation verändert sich | Bestanden |
+| SK-04 | RTL auswählen | Deutsche Texte, Filter und Tabelle bleiben normal lesbar | Bestanden |
+| SK-05 | Schriftkultur auswählen und Seite neu laden | Auswahl bleibt durch lokale Speicherung erhalten | Offen |
+| SK-06 | Ansicht auf Smartphone beziehungsweise Tablet prüfen | Lokale Navigation bleibt in der gestapelten Darstellung nutzbar | Offen |
+
+## 6. Responsive Tests
 
 Die responsive Darstellung wird in einer späteren Entwicklungsphase systematisch überprüft.
 
@@ -62,13 +72,13 @@ Dabei werden mindestens folgende Ansichten berücksichtigt:
 
 Die Darstellung der Navigation, Filterelemente und Emissionstabelle wird dabei insbesondere auf Lesbarkeit, Bedienbarkeit und horizontale Überläufe geprüft.
 
-## 6. Sicherheitstests
+## 7. Sicherheitstests
 
 Die systematische Überprüfung der sicheren Verarbeitung von Benutzereingaben erfolgt in Version `v0.7.0`.
 
 Geplant sind unter anderem Tests mit HTML- und JavaScript-ähnlichen Eingaben, um sicherzustellen, dass eingegebener Inhalt nicht als ausführbarer Code interpretiert wird.
 
-## 7. Browserkompatibilität
+## 8. Browserkompatibilität
 
 Die abschließende Browserprüfung ist für Version `v0.9.0` vorgesehen.
 

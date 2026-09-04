@@ -46,14 +46,16 @@ Die Anwendung enthält:
 
 Die Anwendung besitzt zusätzlich ein lokales Navigationsmenü.
 
-Die Position dieses Menüs wird abhängig von der verwendeten Schreibrichtung angepasst:
+Die Position dieses Menüs wird abhängig von der verwendeten Schriftkultur angepasst:
 
-- Links-nach-Rechts (`LTR`)
-- Rechts-nach-Links (`RTL`)
+- bei Links-nach-Rechts-Schriftkulturen (`LTR`) links vom Hauptinhalt
+- bei Rechts-nach-Links-Schriftkulturen (`RTL`) rechts vom Hauptinhalt
 
-Die lokale Navigation ist bereits umgesetzt. Die dynamische Anpassung an unterschiedliche Schreibrichtungen erfolgt in einer späteren Entwicklungsphase.
+Die deutschsprachigen Inhalte selbst werden dabei nicht gespiegelt. Die Anpassung beschränkt sich gezielt auf die Position der lokalen Navigation.
 
-**Status:** Teilweise erfüllt
+Die Schriftkultur kann manuell ausgewählt werden. Zusätzlich wird eine grundlegende Voreinstellung anhand der Browsersprache ermittelt und die Auswahl lokal gespeichert.
+
+**Status:** Erfüllt
 
 ---
 
@@ -162,6 +164,17 @@ Verwaltet zusätzlich den aktuellen Zustand der Filterung und Sortierung.
 
 Enthält die fiktiven CO₂-Emissionsdaten.
 
+### `direction.js`
+
+Steuert die Berücksichtigung unterschiedlicher Schriftkulturen.
+
+Die Datei enthält Funktionen für:
+
+- Erkennung einer grundlegenden LTR- oder RTL-Schriftkultur
+- manuelle Auswahl der Schriftkultur
+- lokale Speicherung der Auswahl
+- dynamische Positionierung der lokalen Navigation
+
 ### `table.js`
 
 Erzeugt und aktualisiert die Emissionstabelle.
@@ -198,7 +211,7 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 **Status:** Abgeschlossen
 
-**Version:** `v0.1.1`
+**Version:** `v0.1.0`
 
 ---
 
@@ -260,13 +273,16 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 5 – Schriftkulturen
 
-- [ ] LTR-Darstellung umsetzen
-- [ ] RTL-Darstellung umsetzen
-- [ ] lokale Navigation dynamisch positionieren
+- [x] LTR-Darstellung berücksichtigen
+- [x] RTL-Darstellung berücksichtigen
+- [x] lokale Navigation dynamisch positionieren
+- [x] manuelle Auswahl der Schriftkultur ermöglichen
+- [x] ausgewählte Schriftkultur lokal speichern
+- [x] deutschsprachige Inhalte von der Positionsänderung unberührt lassen
 
-**Status:** Offen
+**Status:** Abgeschlossen
 
-**Zielversion:** `v0.6.0`
+**Version:** `v0.6.0`
 
 ---
 
@@ -337,7 +353,7 @@ Das Projekt gilt als abgeschlossen, wenn:
 - Header, Navigation, Inhaltsbereich und Footer vorhanden sind
 - die CO₂-Daten vollständig dargestellt werden
 - Filterung und Sortierung funktionieren
-- LTR- und RTL-Darstellung funktionieren
+- die Position der lokalen Navigation unterschiedliche Schriftkulturen berücksichtigt
 - Benutzereingaben keinen injizierten Code ausführen können
 - die Anwendung auf Desktop, Tablet und Smartphone funktioniert
 - der Quellcode strukturiert und dokumentiert ist

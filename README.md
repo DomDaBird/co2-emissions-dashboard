@@ -7,9 +7,9 @@ Das Projekt entsteht im Rahmen des IU-Kurses
 
 ## Projektstatus
 
-Filterung und Sortierung der CO₂-Emissionsdaten umgesetzt.
+Unterstützung unterschiedlicher Schriftkulturen und dynamische Positionierung der lokalen Navigation umgesetzt.
 
-Aktuelle Version: `v0.5.0`
+Aktuelle Version: `v0.6.0`
 
 ### Aktueller Entwicklungsstand
 
@@ -22,7 +22,6 @@ Aktuelle Version: `v0.5.0`
 - Hauptinhaltsbereich und Footer umgesetzt
 - fiktiver CO₂-Emissionsdatensatz erstellt
 - Emissionstabelle dynamisch mit JavaScript erzeugt
-- responsive Tabellendarstellung umgesetzt
 - Filterung nach Land umgesetzt
 - Suche nach Unternehmen umgesetzt
 - kombinierte Filterung umgesetzt
@@ -30,14 +29,17 @@ Aktuelle Version: `v0.5.0`
 - Sortierung nach Unternehmen umgesetzt
 - numerische Sortierung nach CO₂-Emissionen umgesetzt
 - Zurücksetzen der Filter umgesetzt
+- LTR- und RTL-Schriftkulturen berücksichtigt
+- Position der lokalen Navigation abhängig von der Schriftkultur umgesetzt
+- manuelle Auswahl der Schriftkultur integriert
+- Auswahl der Schriftkultur lokal im Browser gespeichert
 
-Als nächster Schritt wird die Darstellung für unterschiedliche Schreibrichtungen (LTR/RTL) umgesetzt.
+Als nächster Schritt wird die sichere Verarbeitung von Benutzereingaben umgesetzt und getestet.
 
 ## Geplante weitere Funktionen
 
-- Unterstützung von Links-nach-Rechts- und Rechts-nach-Links-Schriftkulturen
-- dynamische Positionierung der lokalen Navigation
 - sichere Verarbeitung von Benutzereingaben
+- Schutz vor HTML- und JavaScript-Injection
 - weitere Optimierung für Desktop, Tablet und Smartphone
 - Überprüfung der Barrierearmut
 - systematische Funktionstests und Sicherheitstests
@@ -68,6 +70,7 @@ assets/
 └── js/
     ├── app.js
     ├── data.js
+    ├── direction.js
     ├── filters.js
     ├── security.js
     └── table.js
