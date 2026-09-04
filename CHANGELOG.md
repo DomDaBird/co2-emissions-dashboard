@@ -6,13 +6,28 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 
 ### Geplant
 
-- CO₂-Emissionsdatensatz
-- dynamische Emissionstabelle
-- Filterung und Sortierung
-- Unterstützung von LTR und RTL
+- Filterung nach Land und Unternehmen
+- Sortierung der Emissionsdaten
+- Unterstützung unterschiedlicher Schreibrichtungen (LTR/RTL)
 - sichere Verarbeitung von Eingaben
 - weitere Optimierung des Responsive Designs
 - Tests und Projektdokumentation
+
+## [0.4.0] - 2026-09-04
+
+### Hinzugefügt
+
+- fiktiver CO₂-Emissionsdatensatz
+- zwölf fiktive Unternehmensdatensätze
+- dynamische Tabellenerzeugung mit JavaScript
+- formatierte Darstellung der Emissionswerte
+- responsive Tabellenansicht
+- Tabellenbeschriftung und semantische Spaltenüberschriften
+
+### Geändert
+
+- CO₂-Bereich von einem Platzhalter zu einer dynamischen Datenansicht erweitert
+- JavaScript-Dateien nach Verantwortlichkeiten strukturiert
 
 ## [0.3.0] - 2026-09-04
 
@@ -26,18 +41,6 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 - Footer mit rechtlichen Hinweisen
 - grundlegendes projektspezifisches Styling
 - Platzhalter für die spätere CO₂-Emissionstabelle
-
-## [Unreleased]
-
-### Geplant
-
-- sichtbares Grundlayout mit Header, Navigation und Footer
-- CO₂-Emissionsdatensatz
-- Filterung und Sortierung
-- Unterstützung von LTR und RTL
-- sichere Verarbeitung von Eingaben
-- Responsive Design
-- Tests und Projektdokumentation
 
 ## [0.2.0] - 2026-09-04
 

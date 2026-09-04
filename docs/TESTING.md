@@ -24,6 +24,8 @@ Zusätzlich werden unterschiedliche Bildschirmgrößen über die Entwicklerwerkz
 
 ## Aktueller Status
 
-Die Implementierung der Anwendung hat noch nicht begonnen.
+Die Grundstruktur der Webanwendung sowie die dynamische Darstellung der fiktiven CO₂-Emissionsdaten sind umgesetzt.
 
-Konkrete Testfälle und Testergebnisse werden gemeinsam mit den jeweiligen Funktionen ergänzt.
+Während der bisherigen Entwicklung wurden grundlegende Funktionstests direkt im Browser durchgeführt. Dabei wurden insbesondere die korrekte Darstellung der Seitenstruktur, die Navigation sowie das Laden und Anzeigen der Emissionstabelle überprüft.
+
+Detaillierte Testfälle und dokumentierte Testergebnisse werden mit den weiteren Funktionen ergänzt und in einer späteren Entwicklungsphase systematisch durchgeführt.

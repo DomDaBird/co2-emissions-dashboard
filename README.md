@@ -7,9 +7,9 @@ Das Projekt entsteht im Rahmen des IU-Kurses
 
 ## Projektstatus
 
-Grundlayout und zentrale Seitenstruktur umgesetzt.
+Fiktiver CO₂-Datensatz und dynamische Emissionstabelle umgesetzt.
 
-Aktuelle Version: `v0.3.0`
+Aktuelle Version: `v0.4.0`
 
 ### Aktueller Entwicklungsstand
 
@@ -19,11 +19,12 @@ Aktuelle Version: `v0.3.0`
 - CarbonScope-Logo integriert
 - Header und globale Navigation umgesetzt
 - lokale Seitennavigation umgesetzt
-- Hauptinhaltsbereich strukturiert
-- Footer mit rechtlichen Hinweisen ergänzt
-- grundlegendes projektspezifisches Styling umgesetzt
+- Hauptinhaltsbereich und Footer umgesetzt
+- fiktiver CO₂-Emissionsdatensatz erstellt
+- Emissionstabelle dynamisch mit JavaScript erzeugt
+- responsive Tabellendarstellung vorbereitet
 
-Als nächster Schritt wird ein fiktiver CO₂-Emissionsdatensatz erstellt und dynamisch in einer Tabelle dargestellt.
+Als nächster Schritt werden Funktionen zur Filterung und Sortierung der CO₂-Emissionsdaten umgesetzt.
 
 ## Geplante Funktionen
 
@@ -45,6 +46,10 @@ Als nächster Schritt wird ein fiktiver CO₂-Emissionsdatensatz erstellt und dy
 - Git
 - GitHub
 - GitHub Pages
+
+## Bildnachweis
+
+Das CarbonScope-Logo wurde 2026 mit ChatGPT erstellt. Ausgangsprompt: „CO₂-Logo mit Sperling in Grün“, anschließend iterativ angepasst.
 
 ## Projektstruktur
 

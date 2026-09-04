@@ -27,7 +27,7 @@ Die Webanwendung besitzt:
 - einen Anwendungstitel
 - ein Logo
 
-**Status:** Geplant
+**Status:** Erfüllt
 
 ---
 
@@ -40,7 +40,7 @@ Die Anwendung enthält:
 - Hauptinhaltsbereich
 - Footer mit rechtlichen Hinweisen
 
-**Status:** Geplant
+**Status:** Erfüllt
 
 ---
 
@@ -53,7 +53,7 @@ Die Position dieses Menüs wird abhängig von der verwendeten Schreibrichtung an
 - Links-nach-Rechts (`LTR`)
 - Rechts-nach-Links (`RTL`)
 
-**Status:** Geplant
+**Status:** Teilweise erfüllt
 
 ---
 
@@ -67,7 +67,7 @@ Die Anwendung soll auf unterschiedlichen Bildschirmgrößen nutzbar sein:
 
 Für die Umsetzung werden Bootstrap sowie eigenes CSS eingesetzt.
 
-**Status:** Geplant
+**Status:** Teilweise erfüllt
 
 ---
 
@@ -81,7 +81,7 @@ Ein Datensatz enthält mindestens:
 - Unternehmen
 - jährliche CO₂-Emission
 
-**Status:** Geplant
+**Status:** Erfüllt
 
 ---
 
@@ -181,7 +181,9 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 - Anforderungen dokumentieren
 - Technologien festlegen
 
-**Zielversion:** `v0.1.0`
+**Status:** Abgeschlossen
+
+**Version:** `v0.1.0`
 
 ---
 
@@ -192,7 +194,9 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 - CSS- und JavaScript-Dateien anbinden
 - grundlegende semantische HTML-Struktur erstellen
 
-**Zielversion:** `v0.2.0`
+**Status:** Abgeschlossen
+
+**Version:** `v0.2.0`
 
 ---
 
@@ -205,7 +209,9 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 - Footer ergänzen
 - Logo integrieren
 
-**Zielversion:** `v0.3.0`
+**Status:** Abgeschlossen
+
+**Version:** `v0.3.0`
 
 ---
 
@@ -214,7 +220,9 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 - fiktiven Datensatz erstellen
 - Tabelle dynamisch mit JavaScript erzeugen
 
-**Zielversion:** `v0.4.0`
+**Status:** Abgeschlossen
+
+**Version:** `v0.4.0`
 
 ---
 
