@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Dependencies / build output
+node_modules/
+dist/
+
+# Temporary files
+*.tmp
+*.swp
