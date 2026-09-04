@@ -1,3 +1,7 @@
+
+## `CHANGELOG.md`
+
+```markdown
 # Changelog
 
 In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Projekts festgehalten.
@@ -6,12 +10,34 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 
 ### Geplant
 
-- Filterung nach Land und Unternehmen
-- Sortierung der Emissionsdaten
 - Unterstützung unterschiedlicher Schreibrichtungen (LTR/RTL)
+- dynamische Positionierung der lokalen Navigation
 - sichere Verarbeitung von Eingaben
 - weitere Optimierung des Responsive Designs
-- Tests und Projektdokumentation
+- Überprüfung der Barrierearmut
+- systematische Tests und Projektdokumentation
+- Veröffentlichung über GitHub Pages
+
+## [0.5.0] - 2026-09-04
+
+### Hinzugefügt
+
+- Auswahlfeld zur Filterung nach Land
+- Suchfeld zur Filterung nach Unternehmen
+- kombinierte Filterung nach Land und Unternehmen
+- Schaltfläche zum Zurücksetzen der Filter
+- Sortierung nach Land
+- Sortierung nach Unternehmen
+- numerische Sortierung nach CO₂-Emissionen
+- visuelle Anzeige der aktuellen Sortierrichtung
+- Meldung bei nicht vorhandenen Suchergebnissen
+
+### Geändert
+
+- Tabellenüberschriften als interaktive Sortierschaltflächen umgesetzt
+- Emissionsbereich um eine Filteroberfläche erweitert
+- zentrale Anwendungssteuerung um Filter- und Sortierzustand ergänzt
+- Überblickstext an die verfügbaren interaktiven Funktionen angepasst
 
 ## [0.4.0] - 2026-09-04
 
@@ -42,6 +68,13 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 - grundlegendes projektspezifisches Styling
 - Platzhalter für die spätere CO₂-Emissionstabelle
 
+## [0.2.1] - 2026-09-04
+
+### Geändert
+
+- README und Changelog an den Entwicklungsstand des HTML-Grundgerüsts angepasst
+- Versionsdokumentation aktualisiert
+
 ## [0.2.0] - 2026-09-04
 
 ### Hinzugefügt
@@ -53,7 +86,7 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 - JavaScript-Einstiegspunkt eingebunden
 - Metadaten für Zeichencodierung und responsive Darstellung ergänzt
 
-## [0.1.0] - 2026-09-04
+## [0.1.1] - 2026-09-04
 
 ### Hinzugefügt
 

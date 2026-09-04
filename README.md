@@ -7,9 +7,9 @@ Das Projekt entsteht im Rahmen des IU-Kurses
 
 ## Projektstatus
 
-Fiktiver CO₂-Datensatz und dynamische Emissionstabelle umgesetzt.
+Filterung und Sortierung der CO₂-Emissionsdaten umgesetzt.
 
-Aktuelle Version: `v0.4.0`
+Aktuelle Version: `v0.5.0`
 
 ### Aktueller Entwicklungsstand
 
@@ -22,19 +22,25 @@ Aktuelle Version: `v0.4.0`
 - Hauptinhaltsbereich und Footer umgesetzt
 - fiktiver CO₂-Emissionsdatensatz erstellt
 - Emissionstabelle dynamisch mit JavaScript erzeugt
-- responsive Tabellendarstellung vorbereitet
+- responsive Tabellendarstellung umgesetzt
+- Filterung nach Land umgesetzt
+- Suche nach Unternehmen umgesetzt
+- kombinierte Filterung umgesetzt
+- Sortierung nach Land umgesetzt
+- Sortierung nach Unternehmen umgesetzt
+- numerische Sortierung nach CO₂-Emissionen umgesetzt
+- Zurücksetzen der Filter umgesetzt
 
-Als nächster Schritt werden Funktionen zur Filterung und Sortierung der CO₂-Emissionsdaten umgesetzt.
+Als nächster Schritt wird die Darstellung für unterschiedliche Schreibrichtungen (LTR/RTL) umgesetzt.
 
-## Geplante Funktionen
+## Geplante weitere Funktionen
 
-- Responsive Darstellung für Desktop, Tablet und Smartphone
-- Semantische Seitenstruktur mit Header, Navigation, Inhaltsbereich und Footer
-- Darstellung fiktiver CO₂-Emissionsdaten
-- Filterung nach Land und Unternehmen
-- Sortierung der Emissionsdaten
 - Unterstützung von Links-nach-Rechts- und Rechts-nach-Links-Schriftkulturen
-- Sichere Verarbeitung von Benutzereingaben
+- dynamische Positionierung der lokalen Navigation
+- sichere Verarbeitung von Benutzereingaben
+- weitere Optimierung für Desktop, Tablet und Smartphone
+- Überprüfung der Barrierearmut
+- systematische Funktionstests und Sicherheitstests
 - Veröffentlichung über GitHub Pages
 
 ## Technologien
@@ -70,4 +76,3 @@ docs/
 ├── screenshots/
 ├── PROJECT_PLAN.md
 └── TESTING.md
-```

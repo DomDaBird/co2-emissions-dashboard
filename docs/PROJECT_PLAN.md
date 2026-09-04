@@ -1,6 +1,4 @@
----
 # Projektplan – CO₂ Emissions Dashboard
----
 
 ## 1. Projektziel
 
@@ -8,7 +6,7 @@ Ziel des Projekts ist die Entwicklung einer responsiven Webanwendung zur Darstel
 
 Die Anwendung soll Nutzer:innen ermöglichen, Emissionswerte verschiedener Länder und Unternehmen übersichtlich darzustellen, zu filtern und zu sortieren.
 
-## Die Anwendung wird als clientseitige Webanwendung mit HTML, CSS, Bootstrap und JavaScript umgesetzt.
+Die Anwendung wird als clientseitige Webanwendung mit HTML, CSS, Bootstrap und JavaScript umgesetzt.
 
 ## 2. Anforderungen
 
@@ -53,6 +51,8 @@ Die Position dieses Menüs wird abhängig von der verwendeten Schreibrichtung an
 - Links-nach-Rechts (`LTR`)
 - Rechts-nach-Links (`RTL`)
 
+Die lokale Navigation ist bereits umgesetzt. Die dynamische Anpassung an unterschiedliche Schreibrichtungen erfolgt in einer späteren Entwicklungsphase.
+
 **Status:** Teilweise erfüllt
 
 ---
@@ -66,6 +66,8 @@ Die Anwendung soll auf unterschiedlichen Bildschirmgrößen nutzbar sein:
 - Smartphone
 
 Für die Umsetzung werden Bootstrap sowie eigenes CSS eingesetzt.
+
+Eine grundlegende responsive Darstellung ist bereits vorhanden. Die systematische Optimierung und Überprüfung erfolgt in einer späteren Entwicklungsphase.
 
 **Status:** Teilweise erfüllt
 
@@ -92,7 +94,9 @@ Die dargestellten Daten können nach folgenden Kriterien gefiltert werden:
 - Land
 - Unternehmen
 
-**Status:** Geplant
+Beide Filter können miteinander kombiniert und gemeinsam zurückgesetzt werden.
+
+**Status:** Erfüllt
 
 ---
 
@@ -104,7 +108,9 @@ Die Tabelle kann nach relevanten Spalten sortiert werden:
 - Unternehmen
 - CO₂-Emission
 
-**Status:** Geplant
+Die Sortierrichtung kann zwischen aufsteigend und absteigend gewechselt werden.
+
+**Status:** Erfüllt
 
 ---
 
@@ -150,6 +156,8 @@ Die fertige Anwendung soll über GitHub Pages veröffentlicht werden.
 
 Initialisierung und zentrale Steuerung der Anwendung.
 
+Verwaltet zusätzlich den aktuellen Zustand der Filterung und Sortierung.
+
 ### `data.js`
 
 Enthält die fiktiven CO₂-Emissionsdaten.
@@ -158,13 +166,20 @@ Enthält die fiktiven CO₂-Emissionsdaten.
 
 Erzeugt und aktualisiert die Emissionstabelle.
 
+Stellt sortierbare Tabellenüberschriften sowie die aktuelle Sortierrichtung dar.
+
 ### `filters.js`
 
-Enthält die Logik für Filterung und Sortierung.
+Enthält die Logik für:
+
+- Filterung nach Land
+- Filterung nach Unternehmen
+- kombinierte Filterung
+- Sortierung der Emissionsdaten
 
 ### `security.js`
 
-Enthält Hilfsfunktionen zur sicheren Verarbeitung von Benutzereingaben.
+Enthält später Hilfsfunktionen zur sicheren Verarbeitung von Benutzereingaben.
 
 ### `styles.css`
 
@@ -176,23 +191,23 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 0 – Planung
 
-- Repository anlegen
-- Projektstruktur erstellen
-- Anforderungen dokumentieren
-- Technologien festlegen
+- [x] Repository anlegen
+- [x] Projektstruktur erstellen
+- [x] Anforderungen dokumentieren
+- [x] Technologien festlegen
 
 **Status:** Abgeschlossen
 
-**Version:** `v0.1.0`
+**Version:** `v0.1.1`
 
 ---
 
 ### Phase 1 – Projektgrundgerüst
 
-- Grundstruktur der `index.html` erstellen
-- Bootstrap einbinden
-- CSS- und JavaScript-Dateien anbinden
-- grundlegende semantische HTML-Struktur erstellen
+- [x] Grundstruktur der `index.html` erstellen
+- [x] Bootstrap einbinden
+- [x] CSS- und JavaScript-Dateien anbinden
+- [x] grundlegende semantische HTML-Struktur erstellen
 
 **Status:** Abgeschlossen
 
@@ -202,12 +217,12 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 2 – Grundlayout
 
-- Header erstellen
-- globale Navigation erstellen
-- Hauptinhaltsbereich strukturieren
-- lokale Navigation erstellen
-- Footer ergänzen
-- Logo integrieren
+- [x] Header erstellen
+- [x] globale Navigation erstellen
+- [x] Hauptinhaltsbereich strukturieren
+- [x] lokale Navigation erstellen
+- [x] Footer ergänzen
+- [x] Logo integrieren
 
 **Status:** Abgeschlossen
 
@@ -217,8 +232,8 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 3 – CO₂-Datensatz
 
-- fiktiven Datensatz erstellen
-- Tabelle dynamisch mit JavaScript erzeugen
+- [x] fiktiven Datensatz erstellen
+- [x] Tabelle dynamisch mit JavaScript erzeugen
 
 **Status:** Abgeschlossen
 
@@ -228,20 +243,28 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 4 – Filtern und Sortieren
 
-- Filterung nach Land
-- Filterung nach Unternehmen
-- Sortierung der Tabelle
-- Filter zurücksetzen
+- [x] Filterung nach Land
+- [x] Filterung nach Unternehmen
+- [x] kombinierte Filterung
+- [x] Sortierung nach Land
+- [x] Sortierung nach Unternehmen
+- [x] Sortierung nach CO₂-Emission
+- [x] Filter zurücksetzen
+- [x] aktuelle Sortierrichtung darstellen
 
-**Zielversion:** `v0.5.0`
+**Status:** Abgeschlossen
+
+**Version:** `v0.5.0`
 
 ---
 
 ### Phase 5 – Schriftkulturen
 
-- LTR-Darstellung umsetzen
-- RTL-Darstellung umsetzen
-- lokale Navigation dynamisch positionieren
+- [ ] LTR-Darstellung umsetzen
+- [ ] RTL-Darstellung umsetzen
+- [ ] lokale Navigation dynamisch positionieren
+
+**Status:** Offen
 
 **Zielversion:** `v0.6.0`
 
@@ -249,10 +272,12 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 6 – Sicherheit
 
-- Benutzereingaben überprüfen
-- HTML-Injection verhindern
-- Ausführung eingeschleusten JavaScript-Codes verhindern
-- Sicherheitstests dokumentieren
+- [ ] Benutzereingaben überprüfen
+- [ ] HTML-Injection verhindern
+- [ ] Ausführung eingeschleusten JavaScript-Codes verhindern
+- [ ] Sicherheitstests dokumentieren
+
+**Status:** Offen
 
 **Zielversion:** `v0.7.0`
 
@@ -260,11 +285,13 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 7 – Responsive Design und Barrierearmut
 
-- Desktopdarstellung optimieren
-- Tabletdarstellung optimieren
-- Smartphonedarstellung optimieren
-- Tastaturbedienbarkeit überprüfen
-- semantisches HTML und Beschriftungen überprüfen
+- [ ] Desktopdarstellung optimieren
+- [ ] Tabletdarstellung optimieren
+- [ ] Smartphonedarstellung optimieren
+- [ ] Tastaturbedienbarkeit überprüfen
+- [ ] semantisches HTML und Beschriftungen überprüfen
+
+**Status:** Offen
 
 **Zielversion:** `v0.8.0`
 
@@ -272,13 +299,15 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 8 – Tests und Dokumentation
 
-- Funktionstests durchführen
-- Responsive Design testen
-- Sicherheitstests durchführen
-- Browserkompatibilität prüfen
-- Quellcode dokumentieren
-- README vervollständigen
-- Screenshots erstellen
+- [ ] Funktionstests durchführen
+- [ ] Responsive Design testen
+- [ ] Sicherheitstests durchführen
+- [ ] Browserkompatibilität prüfen
+- [ ] Quellcode dokumentieren
+- [ ] README vervollständigen
+- [ ] Screenshots erstellen
+
+**Status:** Offen
 
 **Zielversion:** `v0.9.0`
 
@@ -286,12 +315,14 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 9 – Abschluss
 
-- HTML validieren
-- JavaScript überprüfen
-- CSS bereinigen
-- ungenutzten Code entfernen
-- Dokumentation abschließen
-- Anwendung über GitHub Pages veröffentlichen
+- [ ] HTML validieren
+- [ ] JavaScript überprüfen
+- [ ] CSS bereinigen
+- [ ] ungenutzten Code entfernen
+- [ ] Dokumentation abschließen
+- [ ] Anwendung über GitHub Pages veröffentlichen
+
+**Status:** Offen
 
 **Zielversion:** `v1.0.0`
 
