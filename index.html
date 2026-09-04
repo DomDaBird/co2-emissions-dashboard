@@ -29,7 +29,7 @@
     >
 </head>
 
-<body>
+<body class="culture-ltr">
 
     <header>
         <nav
@@ -69,7 +69,7 @@
                     id="globalNavigation"
                 >
 
-                    <ul class="navbar-nav global-navigation">
+                    <ul class="navbar-nav ms-auto">
 
                         <li class="nav-item">
                             <a
@@ -106,13 +106,13 @@
                             for="writing-direction"
                             class="direction-label"
                         >
-                            Schreibrichtung
+                            Schriftkultur
                         </label>
 
                         <select
                             id="writing-direction"
                             class="form-select form-select-sm direction-select"
-                            aria-label="Schreibrichtung auswählen"
+                            aria-label="Schriftkultur auswählen"
                         >
                             <option value="ltr">
                                 LTR
@@ -134,6 +134,7 @@
     <main id="start">
 
         <section class="hero-section">
+
             <div class="container py-5">
 
                 <div class="row align-items-center">
@@ -159,6 +160,7 @@
                 </div>
 
             </div>
+
         </section>
 
         <div class="container my-5">
@@ -166,7 +168,7 @@
             <div class="row g-4 content-layout">
 
                 <aside
-                    class="col-lg-3"
+                    class="col-lg-3 local-navigation-column"
                     aria-label="Lokale Navigation"
                 >
 
@@ -211,7 +213,7 @@
 
                 </aside>
 
-                <div class="col-lg-9">
+                <div class="col-lg-9 content-column">
 
                     <section
                         id="ueberblick"
@@ -398,7 +400,7 @@
     <!-- Tabellenlogik -->
     <script src="assets/js/table.js"></script>
 
-    <!-- Schreibrichtung -->
+    <!-- Schriftkultur -->
     <script src="assets/js/direction.js"></script>
 
     <!-- Einstiegspunkt der Anwendung -->

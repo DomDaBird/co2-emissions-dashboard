@@ -36,19 +36,15 @@ body {
     object-fit: contain;
 }
 
-.global-navigation {
-    margin-inline-start: auto;
-}
 
-
-/* Schreibrichtung */
+/* Auswahl der Schriftkultur */
 
 .direction-control {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 
-    margin-inline-start: 1rem;
+    margin-left: 1rem;
 }
 
 .direction-label {
@@ -99,7 +95,8 @@ body {
 }
 
 .local-navigation .nav-link {
-    padding-inline: 0;
+    padding-left: 0;
+    padding-right: 0;
 
     color: var(--color-muted);
 }
@@ -153,7 +150,8 @@ body {
 }
 
 .table caption {
-    padding-inline: 0.75rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
 }
 
 .sort-button {
@@ -168,7 +166,7 @@ body {
 
     font: inherit;
     font-weight: 600;
-    text-align: start;
+    text-align: left;
 
     background: transparent;
 
@@ -186,6 +184,29 @@ body {
 
 .sort-indicator {
     font-size: 0.9rem;
+}
+
+
+/* Schriftkultur und Position der lokalen Navigation */
+
+@media (min-width: 992px) {
+
+    .culture-ltr .local-navigation-column {
+        order: 1;
+    }
+
+    .culture-ltr .content-column {
+        order: 2;
+    }
+
+    .culture-rtl .content-column {
+        order: 1;
+    }
+
+    .culture-rtl .local-navigation-column {
+        order: 2;
+    }
+
 }
 
 
@@ -209,13 +230,6 @@ body {
 }
 
 
-/* RTL-Anpassungen */
-
-[dir="rtl"] .local-navigation {
-    text-align: right;
-}
-
-
 /* Responsive Anpassungen */
 
 @media (max-width: 991.98px) {
@@ -224,13 +238,9 @@ body {
         position: static;
     }
 
-    .global-navigation {
-        margin-inline-start: 0;
-    }
-
     .direction-control {
         margin-top: 1rem;
-        margin-inline-start: 0;
+        margin-left: 0;
     }
 
 }

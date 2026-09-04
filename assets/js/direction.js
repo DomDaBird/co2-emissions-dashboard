@@ -1,5 +1,6 @@
 /**
- * Steuerung der Schreibrichtung der CarbonScope-Webanwendung.
+ * Steuerung der Schriftkultur und der Position
+ * der lokalen Navigation.
  */
 
 window.CarbonScope = window.CarbonScope || {};
@@ -9,10 +10,11 @@ window.CarbonScope.directionStorageKey =
 
 
 /**
- * Prüft, ob eine Sprache üblicherweise
- * von rechts nach links geschrieben wird.
+ * Erkennt anhand der Browsersprache,
+ * ob üblicherweise eine LTR- oder
+ * RTL-Schriftkultur verwendet wird.
  *
- * @returns {string} "rtl" oder "ltr"
+ * @returns {string} "ltr" oder "rtl"
  */
 window.CarbonScope.detectWritingDirection = function () {
 
@@ -38,14 +40,15 @@ window.CarbonScope.detectWritingDirection = function () {
 
 
 /**
- * Gibt eine zuvor gespeicherte
- * Schreibrichtung zurück.
+ * Liest eine zuvor gespeicherte
+ * Auswahl aus dem Browser.
  *
  * @returns {string|null}
  */
 window.CarbonScope.getSavedWritingDirection = function () {
 
     try {
+
         const savedDirection =
             localStorage.getItem(
                 window.CarbonScope.directionStorageKey
@@ -57,11 +60,14 @@ window.CarbonScope.getSavedWritingDirection = function () {
         ) {
             return savedDirection;
         }
+
     } catch (error) {
+
         console.warn(
-            "Die gespeicherte Schreibrichtung konnte nicht gelesen werden.",
+            "Die gespeicherte Schriftkultur konnte nicht gelesen werden.",
             error
         );
+
     }
 
     return null;
@@ -69,35 +75,42 @@ window.CarbonScope.getSavedWritingDirection = function () {
 
 
 /**
- * Speichert die ausgewählte Schreibrichtung.
+ * Speichert die ausgewählte Schriftkultur.
  *
- * @param {string} direction Schreibrichtung.
+ * @param {string} direction "ltr" oder "rtl"
  */
 window.CarbonScope.saveWritingDirection = function (
     direction
 ) {
 
     try {
+
         localStorage.setItem(
             window.CarbonScope.directionStorageKey,
             direction
         );
+
     } catch (error) {
+
         console.warn(
-            "Die Schreibrichtung konnte nicht gespeichert werden.",
+            "Die Schriftkultur konnte nicht gespeichert werden.",
             error
         );
+
     }
 };
 
 
 /**
- * Wendet eine Schreibrichtung auf
- * das HTML-Dokument an.
+ * Passt die Position der lokalen Navigation an.
  *
- * @param {string} direction Schreibrichtung.
+ * Die Schreibrichtung der deutschsprachigen
+ * Inhalte selbst wird dabei nicht verändert.
+ *
+ * @param {string} direction "ltr" oder "rtl"
+ * @returns {string} angewendete Schriftkultur
  */
-window.CarbonScope.setWritingDirection = function (
+window.CarbonScope.applyWritingDirection = function (
     direction
 ) {
 
@@ -106,9 +119,13 @@ window.CarbonScope.setWritingDirection = function (
             ? "rtl"
             : "ltr";
 
-    document.documentElement.setAttribute(
-        "dir",
-        normalizedDirection
+    document.body.classList.remove(
+        "culture-ltr",
+        "culture-rtl"
+    );
+
+    document.body.classList.add(
+        `culture-${normalizedDirection}`
     );
 
     return normalizedDirection;
@@ -116,8 +133,7 @@ window.CarbonScope.setWritingDirection = function (
 
 
 /**
- * Initialisiert die Steuerung
- * für LTR- und RTL-Darstellung.
+ * Initialisiert die Auswahl der Schriftkultur.
  */
 document.addEventListener(
     "DOMContentLoaded",
@@ -129,8 +145,9 @@ document.addEventListener(
             );
 
         if (!directionSelect) {
+
             console.error(
-                "Die Auswahl für die Schreibrichtung wurde nicht gefunden."
+                "Die Auswahl für die Schriftkultur wurde nicht gefunden."
             );
 
             return;
@@ -144,7 +161,7 @@ document.addEventListener(
             window.CarbonScope.detectWritingDirection();
 
         const appliedDirection =
-            window.CarbonScope.setWritingDirection(
+            window.CarbonScope.applyWritingDirection(
                 initialDirection
             );
 
@@ -157,14 +174,16 @@ document.addEventListener(
             (event) => {
 
                 const direction =
-                    window.CarbonScope.setWritingDirection(
+                    window.CarbonScope.applyWritingDirection(
                         event.target.value
                     );
 
                 window.CarbonScope.saveWritingDirection(
                     direction
                 );
+
             }
         );
+
     }
 );
