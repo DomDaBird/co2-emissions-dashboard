@@ -68,7 +68,8 @@
                     class="collapse navbar-collapse"
                     id="globalNavigation"
                 >
-                    <ul class="navbar-nav ms-auto">
+
+                    <ul class="navbar-nav global-navigation">
 
                         <li class="nav-item">
                             <a
@@ -98,6 +99,32 @@
                         </li>
 
                     </ul>
+
+                    <div class="direction-control">
+
+                        <label
+                            for="writing-direction"
+                            class="direction-label"
+                        >
+                            Schreibrichtung
+                        </label>
+
+                        <select
+                            id="writing-direction"
+                            class="form-select form-select-sm direction-select"
+                            aria-label="Schreibrichtung auswählen"
+                        >
+                            <option value="ltr">
+                                LTR
+                            </option>
+
+                            <option value="rtl">
+                                RTL
+                            </option>
+                        </select>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -136,7 +163,7 @@
 
         <div class="container my-5">
 
-            <div class="row g-4">
+            <div class="row g-4 content-layout">
 
                 <aside
                     class="col-lg-3"
@@ -370,6 +397,9 @@
 
     <!-- Tabellenlogik -->
     <script src="assets/js/table.js"></script>
+
+    <!-- Schreibrichtung -->
+    <script src="assets/js/direction.js"></script>
 
     <!-- Einstiegspunkt der Anwendung -->
     <script src="assets/js/app.js"></script>
