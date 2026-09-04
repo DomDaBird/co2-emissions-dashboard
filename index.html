@@ -194,11 +194,10 @@
                         <h2>Überblick</h2>
 
                         <p>
-                            CarbonScope soll einen schnellen Überblick über
-                            fiktive CO₂-Emissionsdaten ermöglichen. Die
-                            Anwendung wird im weiteren Projektverlauf um
-                            interaktive Funktionen zur Filterung und Sortierung
-                            ergänzt.
+                            CarbonScope ermöglicht einen schnellen Überblick
+                            über fiktive CO₂-Emissionsdaten verschiedener
+                            Länder und Unternehmen. Die dargestellten Daten
+                            können interaktiv gefiltert und sortiert werden.
                         </p>
 
                     </section>
@@ -213,12 +212,84 @@
                         <p>
                             Die folgende Tabelle zeigt fiktive jährliche
                             CO₂-Emissionswerte verschiedener Unternehmen
-                            und Länder.
+                            und Länder. Die Daten können nach Land und
+                            Unternehmen gefiltert sowie über die
+                            Tabellenüberschriften sortiert werden.
                         </p>
+
+                        <div
+                            class="filter-panel mb-4"
+                            aria-labelledby="filter-heading"
+                        >
+
+                            <h3
+                                id="filter-heading"
+                                class="h5 mb-3"
+                            >
+                                Emissionsdaten filtern
+                            </h3>
+
+                            <div class="row g-3 align-items-end">
+
+                                <div class="col-md-4">
+
+                                    <label
+                                        for="country-filter"
+                                        class="form-label"
+                                    >
+                                        Land
+                                    </label>
+
+                                    <select
+                                        id="country-filter"
+                                        class="form-select"
+                                    >
+                                        <option value="">
+                                            Alle Länder
+                                        </option>
+                                    </select>
+
+                                </div>
+
+                                <div class="col-md-5">
+
+                                    <label
+                                        for="company-filter"
+                                        class="form-label"
+                                    >
+                                        Unternehmen
+                                    </label>
+
+                                    <input
+                                        id="company-filter"
+                                        class="form-control"
+                                        type="search"
+                                        placeholder="Unternehmen suchen"
+                                        autocomplete="off"
+                                    >
+
+                                </div>
+
+                                <div class="col-md-3">
+
+                                    <button
+                                        id="reset-filters"
+                                        class="btn btn-outline-secondary w-100"
+                                        type="button"
+                                    >
+                                        Filter zurücksetzen
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
 
                         <div
                             id="emissions-table-container"
                             class="table-responsive"
+                            aria-live="polite"
                         >
 
                             <p class="text-muted mb-0">
@@ -293,6 +364,9 @@
 
     <!-- Anwendungsdaten -->
     <script src="assets/js/data.js"></script>
+
+    <!-- Filter- und Sortierlogik -->
+    <script src="assets/js/filters.js"></script>
 
     <!-- Tabellenlogik -->
     <script src="assets/js/table.js"></script>

@@ -99,6 +99,18 @@ body {
 }
 
 
+/* Filter */
+
+.filter-panel {
+    padding: 1rem;
+
+    background-color: var(--color-background);
+
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+}
+
+
 /* Emissionstabelle */
 
 .table-responsive {
@@ -115,6 +127,38 @@ body {
 .table caption {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+}
+
+.sort-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    width: 100%;
+    padding: 0;
+
+    color: inherit;
+
+    font: inherit;
+    font-weight: 600;
+    text-align: left;
+
+    background: transparent;
+
+    border: 0;
+}
+
+.table th.text-end .sort-button {
+    justify-content: flex-end;
+}
+
+.sort-button:hover,
+.sort-button:focus-visible {
+    text-decoration: underline;
+}
+
+.sort-indicator {
+    font-size: 0.9rem;
 }
 
 
@@ -144,6 +188,14 @@ body {
 
     .local-navigation {
         position: static;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+
+    .content-section {
+        padding: 1.25rem;
     }
 
 }
