@@ -6,11 +6,51 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 
 ### Geplant
 
-- systematische Funktions- und Browsertests
-- Vervollständigung der Projektdokumentation
-- Erstellung von Screenshots
 - abschließende Validierung des Quellcodes
+- abschließende Bereinigung des Projekts
 - Veröffentlichung über GitHub Pages
+- finale Version `v1.0.0`
+
+## [0.9.0] - 2026-09-05
+
+### Hinzugefügt
+
+- systematische Funktionstests
+- systematische Responsive-Tests
+- Browserprüfung mit Google Chrome
+- Browserprüfung mit Apple Safari
+- zusätzliche Prüfung der Tastaturbedienbarkeit in Safari
+- fünf Projektscreenshots für Desktop, Tablet, Smartphone sowie Filter- und RTL-Darstellung
+- Screenshot-Dokumentation im Repository
+- Favicon auf Basis des CarbonScope-Logos
+
+### Geändert
+
+- Testdokumentation auf den tatsächlich geprüften Entwicklungsstand aktualisiert
+- README um Funktionsübersicht erweitert
+- README um Sicherheitskonzept erweitert
+- README um Testinformationen erweitert
+- README um Projektscreenshots erweitert
+- Projektplan an den abgeschlossenen Stand der Test- und Dokumentationsphase angepasst
+
+### Behoben
+
+- automatischer Browseraufruf einer nicht vorhandenen `favicon.ico` durch explizite Favicon-Einbindung beseitigt
+- Browserkonsole zeigt nach der Korrektur keinen Favicon-404 mehr an
+
+### Tests
+
+- sämtliche definierten Filter- und Sortierfunktionen erfolgreich geprüft
+- LTR- und RTL-Darstellung erfolgreich geprüft
+- Speicherung der gewählten Schriftkultur erfolgreich geprüft
+- Sicherheitsprüfungen erfolgreich wiederholt
+- Desktopdarstellung erfolgreich geprüft
+- Tabletdarstellung erfolgreich geprüft
+- Smartphonedarstellung erfolgreich geprüft
+- horizontales Scrollverhalten der Tabelle erfolgreich geprüft
+- Tastaturbedienbarkeit in Chrome erfolgreich geprüft
+- Tastaturbedienbarkeit in Safari nach Aktivierung der entsprechenden Systemeinstellung erfolgreich geprüft
+- keine anwendungsbezogenen JavaScript-Fehler in der Browserkonsole festgestellt
 
 ## [0.8.0] - 2026-09-05
 

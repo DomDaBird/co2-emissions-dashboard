@@ -69,7 +69,11 @@ Die Anwendung ist für unterschiedliche Bildschirmgrößen ausgelegt:
 
 Für die Umsetzung werden Bootstrap sowie eigenes CSS und Media Queries eingesetzt.
 
-Auf kleineren Bildschirmgrößen werden Navigation, Inhaltsbereiche und Filter neu angeordnet. Die Emissionstabelle besitzt bei begrenzter Breite einen eigenen horizontalen Scrollbereich, sodass die gesamte Seite nicht horizontal verschoben werden muss.
+Auf kleineren Bildschirmgrößen werden Navigation, Inhaltsbereiche und Filter neu angeordnet.
+
+Die Emissionstabelle besitzt bei begrenzter Breite einen eigenen horizontalen Scrollbereich.
+
+Die Darstellung wurde auf Desktop-, Tablet- und Smartphone-Größen geprüft.
 
 **Status:** Erfüllt
 
@@ -98,6 +102,8 @@ Die dargestellten Daten können nach folgenden Kriterien gefiltert werden:
 
 Beide Filter können miteinander kombiniert und gemeinsam zurückgesetzt werden.
 
+Die Filterfunktionen wurden systematisch getestet.
+
 **Status:** Erfüllt
 
 ---
@@ -112,6 +118,10 @@ Die Tabelle kann nach relevanten Spalten sortiert werden:
 
 Die Sortierrichtung kann zwischen aufsteigend und absteigend gewechselt werden.
 
+Textwerte werden alphabetisch und Emissionswerte numerisch sortiert.
+
+Die Sortierfunktionen wurden systematisch getestet.
+
 **Status:** Erfüllt
 
 ---
@@ -122,7 +132,9 @@ Benutzereingaben werden grundsätzlich als nicht vertrauenswürdig behandelt.
 
 Freie Texteingaben werden vor der weiteren Verarbeitung normalisiert und in ihrer Länge begrenzt.
 
-Eingaben mit einer festgelegten Menge zulässiger Werte werden über Allow-Lists validiert. Dies betrifft unter anderem:
+Eingaben mit einer festgelegten Menge zulässiger Werte werden über Allow-Lists validiert.
+
+Dies betrifft unter anderem:
 
 - Länderwerte
 - Sortierschlüssel
@@ -130,7 +142,9 @@ Eingaben mit einer festgelegten Menge zulässiger Werte werden über Allow-Lists
 
 Auch aus dem `localStorage` gelesene Werte werden vor ihrer Verwendung erneut validiert.
 
-Dynamisch erzeugte Tabelleninhalte werden über sichere DOM-Operationen wie `textContent` ausgegeben. Benutzereingaben werden nicht über `innerHTML` in das Dokument eingefügt.
+Dynamisch erzeugte Tabelleninhalte werden über sichere DOM-Operationen wie `textContent` ausgegeben.
+
+Benutzereingaben werden nicht über `innerHTML` in das Dokument eingefügt.
 
 Tests mit HTML- und JavaScript-ähnlichen Eingaben wurden durchgeführt. Dabei wurde kein injizierter Code ausgeführt.
 
@@ -332,7 +346,7 @@ Die Datei enthält unter anderem:
 - [x] unsichere HTML-Ausgabe vermeiden
 - [x] HTML-Injection verhindern
 - [x] Ausführung eingeschleusten JavaScript-Codes verhindern
-- [x] grundlegende Sicherheitstests dokumentieren
+- [x] Sicherheitstests dokumentieren
 
 **Status:** Abgeschlossen
 
@@ -363,17 +377,20 @@ Die Datei enthält unter anderem:
 
 ### Phase 8 – Tests und Dokumentation
 
-- [ ] Funktionstests systematisch durchführen
-- [ ] Responsive Design abschließend testen
-- [ ] Sicherheitstests vervollständigen
-- [ ] Browserkompatibilität prüfen
-- [ ] Quellcode überprüfen
-- [ ] README vervollständigen
-- [ ] Screenshots erstellen
+- [x] Funktionstests systematisch durchführen
+- [x] Responsive Design testen
+- [x] Sicherheitstests wiederholen
+- [x] Browserkompatibilität in Chrome und Safari prüfen
+- [x] Tastaturbedienbarkeit in Chrome prüfen
+- [x] Tastaturbedienbarkeit in Safari prüfen
+- [x] Browserkonsole überprüfen
+- [x] README vervollständigen
+- [x] Testdokumentation vervollständigen
+- [x] Screenshots erstellen
 
-**Status:** Offen
+**Status:** Abgeschlossen
 
-**Zielversion:** `v0.9.0`
+**Version:** `v0.9.0`
 
 ---
 
@@ -383,7 +400,7 @@ Die Datei enthält unter anderem:
 - [ ] JavaScript überprüfen
 - [ ] CSS bereinigen
 - [ ] ungenutzten Code entfernen
-- [ ] Dokumentation abschließen
+- [ ] Dokumentation abschließend prüfen
 - [ ] Anwendung über GitHub Pages veröffentlichen
 
 **Status:** Offen
