@@ -2,71 +2,24 @@
 
 Responsive Webanwendung zur übersichtlichen Darstellung fiktiver CO₂-Emissionsdaten von Ländern und Unternehmen.
 
-Das Projekt entsteht im Rahmen des IU-Kurses  
+Das Projekt entstand im Rahmen des IU-Kurses  
 **IPWA01-01 – Programmierung von Webanwendungsoberflächen**.
+
+## Live-Anwendung
+
+Die veröffentlichte Anwendung ist über GitHub Pages erreichbar:
+
+[CarbonScope öffnen](https://domdabird.github.io/co2-emissions-dashboard/)
 
 ## Projektstatus
 
-Die funktionale Umsetzung ist abgeschlossen und wurde systematisch getestet und dokumentiert.
+Das Projekt ist vollständig umgesetzt, getestet, dokumentiert und veröffentlicht.
 
-Aktuelle Version: `v0.9.0`
-
-### Aktueller Entwicklungsstand
-
-- Projektplanung abgeschlossen
-- HTML5-Grundgerüst erstellt
-- Bootstrap 5 eingebunden
-- CarbonScope-Logo integriert
-- Favicon eingebunden
-- Header und globale Navigation umgesetzt
-- lokale Seitennavigation umgesetzt
-- Hauptinhaltsbereich und Footer umgesetzt
-- fiktiver CO₂-Emissionsdatensatz erstellt
-- Emissionstabelle dynamisch mit JavaScript erzeugt
-- Filterung nach Land umgesetzt
-- Suche nach Unternehmen umgesetzt
-- kombinierte Filterung umgesetzt
-- Sortierung nach Land umgesetzt
-- Sortierung nach Unternehmen umgesetzt
-- numerische Sortierung nach CO₂-Emissionen umgesetzt
-- Zurücksetzen der Filter umgesetzt
-- LTR- und RTL-Schriftkulturen berücksichtigt
-- Position der lokalen Navigation abhängig von der Schriftkultur umgesetzt
-- manuelle Auswahl der Schriftkultur integriert
-- Auswahl der Schriftkultur lokal im Browser gespeichert
-- freie Texteingaben normalisiert und in ihrer Länge begrenzt
-- Eingaben mit festgelegten Werten über Allow-Lists validiert
-- gespeicherte Werte aus `localStorage` erneut validiert
-- dynamische Textausgaben sicher verarbeitet
-- HTML-Injection- und XSS-Tests erfolgreich durchgeführt
-- Desktop-, Tablet- und Smartphone-Darstellung optimiert
-- responsive Emissionstabelle mit horizontalem Scrollbereich umgesetzt
-- sichtbare Tastatur-Fokuszustände ergänzt
-- Skip-Link zum Hauptinhalt integriert
-- Sortierfunktionen für die Tastaturbedienung optimiert
-- Screenreader-Rückmeldungen für Tabelle und Sortierung ergänzt
-- semantische Beschriftungen und ARIA-Attribute erweitert
-- Einstellung für reduzierte Animationen berücksichtigt
-- systematische Funktionsprüfung durchgeführt
-- Responsive Design auf mehreren Bildschirmgrößen geprüft
-- Anwendung in Google Chrome und Apple Safari getestet
-- Projektscreenshots erstellt und dokumentiert
-
-Als nächster Schritt erfolgt der abschließende Qualitätscheck mit Validierung des Quellcodes und Veröffentlichung über GitHub Pages.
-
-## Geplante letzte Schritte
-
-- HTML abschließend validieren
-- JavaScript abschließend überprüfen
-- CSS abschließend überprüfen
-- ungenutzten Code entfernen
-- GitHub Pages aktivieren
-- finale Projektdokumentation prüfen
-- Version `v1.0.0` veröffentlichen
+Aktuelle Version: `v1.0.0`
 
 ## Funktionen
 
-### Emissionsdaten
+### CO₂-Emissionsdaten
 
 CarbonScope stellt zwölf fiktive Unternehmensdatensätze aus verschiedenen europäischen Ländern dar.
 
@@ -78,12 +31,12 @@ Die Tabelle enthält:
 
 ### Filterung
 
-Die Datensätze können gefiltert werden nach:
+Die dargestellten Daten können gefiltert werden nach:
 
 - Land
 - Unternehmen
 
-Beide Filter können miteinander kombiniert werden.
+Beide Filter können miteinander kombiniert und gemeinsam zurückgesetzt werden.
 
 ### Sortierung
 
@@ -93,6 +46,8 @@ Die Tabelle kann auf- und absteigend sortiert werden nach:
 - Unternehmen
 - CO₂-Emissionen
 
+Textwerte werden alphabetisch und Emissionswerte numerisch sortiert.
+
 ### Schriftkulturen
 
 Die Position der lokalen Navigation berücksichtigt unterschiedliche Schriftkulturen.
@@ -100,7 +55,9 @@ Die Position der lokalen Navigation berücksichtigt unterschiedliche Schriftkult
 - LTR: lokale Navigation links vom Hauptinhalt
 - RTL: lokale Navigation rechts vom Hauptinhalt
 
-Die deutschsprachigen Inhalte selbst bleiben dabei unverändert lesbar.
+Die deutschsprachigen Inhalte selbst bleiben unverändert lesbar.
+
+Die Auswahl kann manuell geändert und lokal im Browser gespeichert werden.
 
 ### Responsive Design
 
@@ -112,7 +69,9 @@ Berücksichtigt werden insbesondere:
 - Tablet
 - Smartphone
 
-Auf kleinen Displays besitzt die Emissionstabelle einen eigenen horizontalen Scrollbereich.
+Auf kleineren Displays werden Navigation und Inhalte entsprechend neu angeordnet.
+
+Die Emissionstabelle besitzt einen eigenen horizontalen Scrollbereich, wenn die verfügbare Breite nicht ausreicht.
 
 ### Barrierearmut
 
@@ -124,6 +83,7 @@ Die Anwendung enthält grundlegende Maßnahmen zur Verbesserung der Zugänglichk
 - per Tastatur bedienbare Sortierfunktionen
 - Wiederherstellung des Tastaturfokus nach einer Sortierung
 - ARIA-Beschriftungen
+- ARIA-Sortierzustände
 - Screenreader-Statusmeldungen
 - Berücksichtigung reduzierter Animationen
 
@@ -158,13 +118,18 @@ Die Anwendung wurde systematisch auf folgende Bereiche geprüft:
 - Tastaturbedienbarkeit
 - Responsive Design
 - Browserkonsole
+- veröffentlichte GitHub-Pages-Version
 
 ### Getestete Browser
 
 - Google Chrome
 - Apple Safari
 
-Bei Safari muss für eine vollständige Navigation über alle interaktiven Seitenelemente die entsprechende Tastaturnavigation des Browsers beziehungsweise von macOS aktiviert sein.
+Bei Safari muss für die vollständige Navigation über interaktive Seitenelemente die entsprechende Tastaturnavigation des Browsers beziehungsweise von macOS aktiviert sein.
+
+Die vollständigen Testfälle und Testergebnisse befinden sich in:
+
+`docs/TESTING.md`
 
 ## Screenshots
 
@@ -198,6 +163,14 @@ Bei Safari muss für eine vollständige Navigation über alle interaktiven Seite
 - GitHub
 - GitHub Pages
 
+## Deployment
+
+Die Anwendung wird direkt aus dem `main`-Branch des GitHub-Repositories über GitHub Pages bereitgestellt.
+
+Veröffentlichte Anwendung:
+
+https://domdabird.github.io/co2-emissions-dashboard/
+
 ## Bildnachweis
 
 Das CarbonScope-Logo wurde 2026 mit ChatGPT erstellt. Ausgangsprompt: „CO₂-Logo mit Sperling in Grün“, anschließend iterativ angepasst.
@@ -227,3 +200,4 @@ docs/
 │   └── 05-tablet-820px.png
 ├── PROJECT_PLAN.md
 └── TESTING.md
+```

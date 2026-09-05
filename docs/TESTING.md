@@ -15,6 +15,8 @@ Folgende Bereiche wurden während der Entwicklung überprüft:
 - grundlegende Barrierearmut
 - Tastaturbedienbarkeit
 - Browserkonsole
+- finale Quellcode-Struktur
+- GitHub-Pages-Deployment
 
 ## 2. Testumgebungen
 
@@ -152,13 +154,13 @@ Für die vollständige Tastaturnavigation wurde die entsprechende Safari- bezieh
 
 ### Mozilla Firefox
 
-Firefox wurde im Rahmen der aktuellen Testphase nicht systematisch geprüft.
+Firefox wurde im Rahmen der Testphase nicht systematisch geprüft.
 
 **Status:** Nicht getestet
 
 ## 9. Konsolenprüfung
 
-Während der Prüfung wurde zunächst eine fehlende Ressource `favicon.ico` mit HTTP-Status 404 festgestellt.
+Während einer früheren Prüfung wurde zunächst eine fehlende Ressource `favicon.ico` mit HTTP-Status 404 festgestellt.
 
 Daraufhin wurde das vorhandene CarbonScope-Logo explizit als SVG-Favicon in `index.html` eingebunden.
 
@@ -168,7 +170,44 @@ Anwendungsbezogene JavaScript-Fehler wurden bei den abschließenden Prüfungen n
 
 **Status:** Bestanden
 
-## 10. Screenshots
+## 10. Abschlussprüfung des Quellcodes
+
+Vor der Veröffentlichung von Version `v1.0.0` wurde zusätzlich eine technische Abschlussprüfung durchgeführt.
+
+| ID | Prüfung | Ergebnis | Status |
+|---|---|---|---|
+| FINAL-01 | JavaScript-Syntax aller Dateien prüfen | Alle sechs JavaScript-Dateien bestehen die Syntaxprüfung | Bestanden |
+| FINAL-02 | HTML auf doppelte IDs prüfen | Keine doppelten IDs vorhanden | Bestanden |
+| FINAL-03 | interne HTML-Referenzen prüfen | Keine fehlenden internen Ziel-IDs festgestellt | Bestanden |
+| FINAL-04 | ARIA-Referenzen prüfen | Keine fehlenden referenzierten IDs festgestellt | Bestanden |
+| FINAL-05 | Formularbeschriftungen prüfen | Alle geprüften `label`-Elemente besitzen gültige Ziele | Bestanden |
+| FINAL-06 | unsichere DOM-Ausgabemethoden suchen | Keine Verwendung von `innerHTML`, `outerHTML`, `insertAdjacentHTML`, `eval` oder `new Function` im Anwendungscode festgestellt | Bestanden |
+| FINAL-07 | Inline-JavaScript-Ereignishandler prüfen | Keine Inline-Event-Handler festgestellt | Bestanden |
+| FINAL-08 | CSS-Regelstruktur prüfen | Öffnende und schließende Regelblöcke sind ausgeglichen | Bestanden |
+| FINAL-09 | versionierte Systemdateien prüfen | Keine `.DS_Store`-Dateien werden von Git versioniert | Bestanden |
+
+## 11. GitHub-Pages-Test
+
+Die Anwendung wurde über GitHub Pages veröffentlicht.
+
+Live-Anwendung:
+
+https://domdabird.github.io/co2-emissions-dashboard/
+
+Auf der veröffentlichten Version wurden folgende Funktionen erneut geprüft:
+
+| ID | Testfall | Status |
+|---|---|---|
+| DEPLOY-01 | Anwendung wird über HTTPS geladen | Bestanden |
+| DEPLOY-02 | CarbonScope-Oberfläche wird vollständig dargestellt | Bestanden |
+| DEPLOY-03 | Emissionsdaten werden geladen | Bestanden |
+| DEPLOY-04 | Filterung funktioniert | Bestanden |
+| DEPLOY-05 | Sortierung funktioniert | Bestanden |
+| DEPLOY-06 | LTR- und RTL-Menüposition funktioniert | Bestanden |
+| DEPLOY-07 | responsive Darstellung funktioniert | Bestanden |
+| DEPLOY-08 | Browserkonsole zeigt keine anwendungsbezogenen Fehler | Bestanden |
+
+## 12. Screenshots
 
 Folgende Screenshots dokumentieren unterschiedliche Zustände und Bildschirmgrößen der Anwendung:
 
@@ -180,10 +219,18 @@ Folgende Screenshots dokumentieren unterschiedliche Zustände und Bildschirmgrö
 
 Die Dateien befinden sich unter `docs/screenshots/`.
 
-## 11. Testergebnis
+## 13. Testergebnis
 
-Die für Version `v0.9.0` definierten Funktions-, Sicherheits-, Responsive- und Accessibility-Tests wurden erfolgreich durchgeführt.
+Die definierten Funktions-, Sicherheits-, Responsive-, Accessibility- und Deployment-Tests wurden erfolgreich durchgeführt.
 
 Die Anwendung zeigte in den getesteten Browsern Google Chrome und Apple Safari keine funktionskritischen Fehler.
 
-Die abschließende Phase umfasst die Validierung und Bereinigung des Quellcodes sowie die Veröffentlichung über GitHub Pages.
+Die technische Abschlussprüfung ergab keine Fehler, die einer Veröffentlichung entgegenstehen.
+
+Die Anwendung ist unter folgender Adresse öffentlich erreichbar:
+
+https://domdabird.github.io/co2-emissions-dashboard/
+
+**Finaler Projektstatus:** Bestanden
+
+**Finale Version:** `v1.0.0`

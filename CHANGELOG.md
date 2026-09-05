@@ -4,12 +4,45 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 
 ## [Unreleased]
 
-### Geplant
+Aktuell sind keine weiteren Änderungen für den Abgabestand geplant.
 
-- abschließende Validierung des Quellcodes
-- abschließende Bereinigung des Projekts
-- Veröffentlichung über GitHub Pages
-- finale Version `v1.0.0`
+## [1.0.0] - 2026-09-05
+
+### Hinzugefügt
+
+- Veröffentlichung der Anwendung über GitHub Pages
+- Live-Link zur veröffentlichten Anwendung in der README
+- abschließende technische Projektprüfung
+
+### Geändert
+
+- Projektstatus auf abgeschlossen gesetzt
+- README auf den finalen Projektstand aktualisiert
+- Projektplan vollständig abgeschlossen
+- Testdokumentation um die Abschlussprüfung ergänzt
+- Deployment-Status dokumentiert
+
+### Geprüft
+
+- JavaScript-Syntax aller sechs JavaScript-Dateien erfolgreich geprüft
+- HTML-Struktur auf doppelte IDs und fehlerhafte interne Referenzen geprüft
+- Zuordnung der Formularbeschriftungen geprüft
+- ARIA-Referenzen geprüft
+- unsichere DOM-Ausgabemethoden im Anwendungscode geprüft
+- CSS-Struktur auf ausgeglichene Regelblöcke geprüft
+- GitHub-Pages-Version erfolgreich aufgerufen und getestet
+- Filterung auf der veröffentlichten Anwendung erfolgreich geprüft
+- Sortierung auf der veröffentlichten Anwendung erfolgreich geprüft
+- LTR- und RTL-Funktion auf der veröffentlichten Anwendung erfolgreich geprüft
+- responsive Darstellung auf der veröffentlichten Anwendung geprüft
+- Browserkonsole ohne anwendungsbezogene Fehler geprüft
+- Repository auf unbeabsichtigt versionierte `.DS_Store`-Dateien geprüft
+
+### Deployment
+
+Die finale Anwendung ist erreichbar unter:
+
+https://domdabird.github.io/co2-emissions-dashboard/
 
 ## [0.9.0] - 2026-09-05
 
@@ -196,9 +229,16 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 
 ### Hinzugefügt
 
-- initiale Projektstruktur
-- Projektplan
+- Projektplanung
 - dokumentierte Anforderungen
 - Entwicklungsphasen
 - erste README-Dokumentation
 - grundlegende Teststrategie
+- initiale Projektstruktur
+
+## [0.1.0] - 2026-09-04
+
+### Hinzugefügt
+
+- initiales Git-Repository
+- erster Projektstand

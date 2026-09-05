@@ -4,9 +4,13 @@
 
 Ziel des Projekts ist die Entwicklung einer responsiven Webanwendung zur Darstellung fiktiver CO₂-Emissionsdaten.
 
-Die Anwendung soll Nutzer:innen ermöglichen, Emissionswerte verschiedener Länder und Unternehmen übersichtlich darzustellen, zu filtern und zu sortieren.
+Die Anwendung ermöglicht Nutzer:innen, Emissionswerte verschiedener Länder und Unternehmen übersichtlich darzustellen, zu filtern und zu sortieren.
 
-Die Anwendung wird als clientseitige Webanwendung mit HTML, CSS, Bootstrap und JavaScript umgesetzt.
+Die Anwendung wurde als clientseitige Webanwendung mit HTML, CSS, Bootstrap und JavaScript umgesetzt.
+
+Die finale Version ist über GitHub Pages veröffentlicht:
+
+https://domdabird.github.io/co2-emissions-dashboard/
 
 ## 2. Anforderungen
 
@@ -51,7 +55,7 @@ Die Position dieses Menüs wird abhängig von der verwendeten Schriftkultur ange
 - bei Links-nach-Rechts-Schriftkulturen (`LTR`) links vom Hauptinhalt
 - bei Rechts-nach-Links-Schriftkulturen (`RTL`) rechts vom Hauptinhalt
 
-Die deutschsprachigen Inhalte selbst werden dabei nicht gespiegelt. Die Anpassung beschränkt sich gezielt auf die Position der lokalen Navigation.
+Die deutschsprachigen Inhalte selbst werden dabei nicht gespiegelt.
 
 Die Schriftkultur kann manuell ausgewählt werden. Zusätzlich wird eine grundlegende Voreinstellung anhand der Browsersprache ermittelt und die Auswahl lokal gespeichert.
 
@@ -73,7 +77,7 @@ Auf kleineren Bildschirmgrößen werden Navigation, Inhaltsbereiche und Filter n
 
 Die Emissionstabelle besitzt bei begrenzter Breite einen eigenen horizontalen Scrollbereich.
 
-Die Darstellung wurde auf Desktop-, Tablet- und Smartphone-Größen geprüft.
+Die Darstellung wurde auf unterschiedlichen Bildschirmgrößen getestet.
 
 **Status:** Erfüllt
 
@@ -88,6 +92,8 @@ Ein Datensatz enthält mindestens:
 - Land
 - Unternehmen
 - jährliche CO₂-Emission
+
+Die finale Anwendung enthält zwölf fiktive Datensätze.
 
 **Status:** Erfüllt
 
@@ -165,16 +171,21 @@ Tests mit HTML- und JavaScript-ähnlichen Eingaben wurden durchgeführt. Dabei w
 
 Die Anwendung verwendet einen lokal definierten, fiktiven Datensatz.
 
-Eine externe API oder Datenbank ist für die Anwendung nicht erforderlich.
+Eine externe API oder Datenbank ist nicht erforderlich.
 
 ### Versionsverwaltung
 
 - Git
 - GitHub
+- versionierte Entwicklungsstände über Git-Tags
 
 ### Deployment
 
-Die fertige Anwendung soll über GitHub Pages veröffentlicht werden.
+Die Anwendung wird über GitHub Pages direkt aus dem `main`-Branch veröffentlicht.
+
+Live-Anwendung:
+
+https://domdabird.github.io/co2-emissions-dashboard/
 
 ---
 
@@ -184,13 +195,13 @@ Die fertige Anwendung soll über GitHub Pages veröffentlicht werden.
 
 Initialisierung und zentrale Steuerung der Anwendung.
 
-Verwaltet den aktuellen Zustand der Filterung und Sortierung und verwendet Sicherheitsfunktionen zur Validierung der verarbeiteten Werte.
+Die Datei verwaltet den aktuellen Zustand der Filterung und Sortierung und verwendet Sicherheitsfunktionen zur Validierung der verarbeiteten Werte.
 
 Nach der Neudarstellung einer sortierten Tabelle wird der Tastaturfokus bei Bedarf auf die zuvor verwendete Sortierschaltfläche zurückgesetzt.
 
 ### `data.js`
 
-Enthält die fiktiven CO₂-Emissionsdaten.
+Enthält die zwölf fiktiven CO₂-Emissionsdatensätze.
 
 ### `direction.js`
 
@@ -227,7 +238,7 @@ Dazu gehören:
 
 Erzeugt und aktualisiert die Emissionstabelle.
 
-Stellt sortierbare Tabellenüberschriften sowie die aktuelle Sortierrichtung dar.
+Die Datei stellt sortierbare Tabellenüberschriften sowie die aktuelle Sortierrichtung dar.
 
 Dynamische Tabelleninhalte werden als Text über DOM-Operationen wie `textContent` eingefügt.
 
@@ -244,6 +255,7 @@ Die Datei enthält unter anderem:
 - Darstellung des Skip-Links
 - mobile Navigation
 - horizontal scrollbar dargestellte Tabelle
+- LTR- und RTL-Positionierung der lokalen Navigation
 - Berücksichtigung reduzierter Animationen
 
 ---
@@ -259,7 +271,9 @@ Die Datei enthält unter anderem:
 
 **Status:** Abgeschlossen
 
-**Version:** `v0.1.1`
+**Initialisierung:** `v0.1.0`
+
+**Abschluss der Projektplanung:** `v0.1.1`
 
 ---
 
@@ -396,16 +410,19 @@ Die Datei enthält unter anderem:
 
 ### Phase 9 – Abschluss
 
-- [ ] HTML validieren
-- [ ] JavaScript überprüfen
-- [ ] CSS bereinigen
-- [ ] ungenutzten Code entfernen
-- [ ] Dokumentation abschließend prüfen
-- [ ] Anwendung über GitHub Pages veröffentlichen
+- [x] HTML-Struktur abschließend prüfen
+- [x] JavaScript-Syntax abschließend prüfen
+- [x] CSS-Struktur abschließend prüfen
+- [x] unsichere DOM-Ausgabemethoden überprüfen
+- [x] interne HTML- und ARIA-Referenzen überprüfen
+- [x] Repository auf unbeabsichtigt versionierte Systemdateien prüfen
+- [x] Dokumentation abschließend prüfen
+- [x] Anwendung über GitHub Pages veröffentlichen
+- [x] veröffentlichte Anwendung testen
 
-**Status:** Offen
+**Status:** Abgeschlossen
 
-**Zielversion:** `v1.0.0`
+**Version:** `v1.0.0`
 
 ---
 
@@ -413,17 +430,21 @@ Die Datei enthält unter anderem:
 
 Das Projekt gilt als abgeschlossen, wenn:
 
-- alle Anforderungen umgesetzt wurden
-- Titel und Logo vorhanden sind
-- Header, Navigation, Inhaltsbereich und Footer vorhanden sind
-- die CO₂-Daten vollständig dargestellt werden
-- Filterung und Sortierung funktionieren
-- die Position der lokalen Navigation unterschiedliche Schriftkulturen berücksichtigt
-- Benutzereingaben keinen injizierten Code ausführen können
-- die Anwendung auf Desktop, Tablet und Smartphone funktioniert
-- die Anwendung grundlegend per Tastatur bedienbar ist
-- der Quellcode strukturiert und dokumentiert ist
-- die definierten Testfälle erfolgreich durchgeführt wurden
-- die Anwendung über GitHub Pages erreichbar ist
-- die Git-Historie die Entwicklung nachvollziehbar dokumentiert
-- die Projektdokumentation vollständig ist
+- [x] alle definierten Anforderungen umgesetzt wurden
+- [x] Titel und Logo vorhanden sind
+- [x] Header, Navigation, Inhaltsbereich und Footer vorhanden sind
+- [x] die CO₂-Daten vollständig dargestellt werden
+- [x] Filterung und Sortierung funktionieren
+- [x] die Position der lokalen Navigation unterschiedliche Schriftkulturen berücksichtigt
+- [x] Benutzereingaben keinen injizierten Code ausführen können
+- [x] die Anwendung auf Desktop, Tablet und Smartphone funktioniert
+- [x] die Anwendung grundlegend per Tastatur bedienbar ist
+- [x] der Quellcode strukturiert und dokumentiert ist
+- [x] die definierten Testfälle erfolgreich durchgeführt wurden
+- [x] die Anwendung über GitHub Pages erreichbar ist
+- [x] die Git-Historie die Entwicklung nachvollziehbar dokumentiert
+- [x] die Projektdokumentation vollständig ist
+
+**Projektstatus:** Abgeschlossen
+
+**Finale Version:** `v1.0.0`
