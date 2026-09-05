@@ -1,9 +1,9 @@
 
 ---
 
-# `CHANGELOG.md`
+# `CHANGELOG.md` vollständig
 
-Die bisherigen Versionen kannst du darunter unverändert lassen. Der obere Teil sollte jetzt so aussehen:
+Hier bitte wirklich den **gesamten bisherigen Inhalt löschen**, damit der versehentlich hineinkopierte Chat-Text verschwindet. :contentReference[oaicite:2]{index=2}
 
 ```markdown
 # Changelog
@@ -14,12 +14,40 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 
 ### Geplant
 
-- sichere Verarbeitung von Eingaben
-- Schutz vor HTML- und JavaScript-Injection
 - weitere Optimierung des Responsive Designs
 - Überprüfung der Barrierearmut
-- systematische Tests und Projektdokumentation
+- systematische Funktions- und Browsertests
+- Vervollständigung der Projektdokumentation
 - Veröffentlichung über GitHub Pages
+
+## [0.7.0] - 2026-09-05
+
+### Hinzugefügt
+
+- zentrale Sicherheitsfunktionen in `security.js`
+- Normalisierung freier Texteingaben
+- Begrenzung des Unternehmenssuchfelds auf maximal 80 Zeichen
+- Allow-List-Validierung für Länderwerte
+- Allow-List-Validierung für Sortierschlüssel
+- Allow-List-Validierung für LTR- und RTL-Werte
+- erneute Validierung von Werten aus `localStorage`
+- grundlegende Tests gegen HTML-Injection und Cross-Site-Scripting
+
+### Geändert
+
+- Unternehmenssuche verarbeitet normalisierte Eingaben
+- Länderfilter akzeptiert ausschließlich Werte aus dem vorhandenen Datensatz
+- Schriftkultur akzeptiert ausschließlich `ltr` und `rtl`
+- Sortierung akzeptiert ausschließlich definierte Sortierschlüssel
+- Sicherheitsfunktionen werden vor den davon abhängigen JavaScript-Dateien geladen
+
+### Sicherheit
+
+- HTML-Injection-Test erfolgreich durchgeführt
+- XSS-Test mit `script`-Element erfolgreich durchgeführt
+- XSS-Test mit ereignisbasierter HTML-Eingabe erfolgreich durchgeführt
+- eingegebener Code wurde bei den durchgeführten Tests nicht ausgeführt
+- dynamische Tabelleninhalte werden weiterhin über `textContent` ausgegeben
 
 ## [0.6.0] - 2026-09-04
 
@@ -89,6 +117,13 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 - grundlegendes projektspezifisches Styling
 - Platzhalter für die spätere CO₂-Emissionstabelle
 
+## [0.2.1] - 2026-09-04
+
+### Geändert
+
+- Projektdokumentation an den Entwicklungsstand des HTML-Grundgerüsts angepasst
+- Versionsdokumentation aktualisiert
+
 ## [0.2.0] - 2026-09-04
 
 ### Hinzugefügt
@@ -100,7 +135,7 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 - JavaScript-Einstiegspunkt eingebunden
 - Metadaten für Zeichencodierung und responsive Darstellung ergänzt
 
-## [0.1.0] - 2026-09-04
+## [0.1.1] - 2026-09-04
 
 ### Hinzugefügt
 

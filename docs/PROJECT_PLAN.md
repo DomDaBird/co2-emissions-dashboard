@@ -118,11 +118,23 @@ Die Sortierrichtung kann zwischen aufsteigend und absteigend gewechselt werden.
 
 ### REQ-09 – Sichere Eingabeverarbeitung
 
-Von Nutzer:innen eingegebene Inhalte dürfen nicht als ausführbarer HTML- oder JavaScript-Code interpretiert werden.
+Benutzereingaben werden grundsätzlich als nicht vertrauenswürdig behandelt.
 
-Unsichere DOM-Manipulationen sollen vermieden und Eingaben bei Bedarf geprüft beziehungsweise normalisiert werden.
+Freie Texteingaben werden vor der weiteren Verarbeitung normalisiert und in ihrer Länge begrenzt.
 
-**Status:** Geplant
+Eingaben mit einer festgelegten Menge zulässiger Werte werden über Allow-Lists validiert. Dies betrifft unter anderem:
+
+- Länderwerte
+- Sortierschlüssel
+- LTR- und RTL-Werte
+
+Auch aus dem `localStorage` gelesene Werte werden vor ihrer Verwendung erneut validiert.
+
+Dynamisch erzeugte Tabelleninhalte werden über sichere DOM-Operationen wie `textContent` ausgegeben. Benutzereingaben werden nicht über `innerHTML` in das Dokument eingefügt.
+
+Tests mit HTML- und JavaScript-ähnlichen Eingaben wurden durchgeführt. Dabei wurde kein injizierter Code ausgeführt.
+
+**Status:** Erfüllt
 
 ---
 
@@ -158,7 +170,7 @@ Die fertige Anwendung soll über GitHub Pages veröffentlicht werden.
 
 Initialisierung und zentrale Steuerung der Anwendung.
 
-Verwaltet zusätzlich den aktuellen Zustand der Filterung und Sortierung.
+Verwaltet den aktuellen Zustand der Filterung und Sortierung und verwendet Sicherheitsfunktionen zur Validierung der verarbeiteten Werte.
 
 ### `data.js`
 
@@ -173,13 +185,8 @@ Die Datei enthält Funktionen für:
 - Erkennung einer grundlegenden LTR- oder RTL-Schriftkultur
 - manuelle Auswahl der Schriftkultur
 - lokale Speicherung der Auswahl
+- Validierung zulässiger Schriftkulturwerte
 - dynamische Positionierung der lokalen Navigation
-
-### `table.js`
-
-Erzeugt und aktualisiert die Emissionstabelle.
-
-Stellt sortierbare Tabellenüberschriften sowie die aktuelle Sortierrichtung dar.
 
 ### `filters.js`
 
@@ -192,7 +199,21 @@ Enthält die Logik für:
 
 ### `security.js`
 
-Enthält später Hilfsfunktionen zur sicheren Verarbeitung von Benutzereingaben.
+Enthält zentrale Hilfsfunktionen zur sicheren Verarbeitung von Benutzereingaben.
+
+Dazu gehören:
+
+- Normalisierung freier Texteingaben
+- Begrenzung der Eingabelänge
+- Allow-List-Validierung für Werte mit einer festgelegten Menge zulässiger Optionen
+
+### `table.js`
+
+Erzeugt und aktualisiert die Emissionstabelle.
+
+Stellt sortierbare Tabellenüberschriften sowie die aktuelle Sortierrichtung dar.
+
+Dynamische Tabelleninhalte werden als Text über DOM-Operationen wie `textContent` eingefügt.
 
 ### `styles.css`
 
@@ -211,7 +232,7 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 **Status:** Abgeschlossen
 
-**Version:** `v0.1.0`
+**Version:** `v0.1.1`
 
 ---
 
@@ -225,6 +246,8 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 **Status:** Abgeschlossen
 
 **Version:** `v0.2.0`
+
+**Dokumentationsstand:** `v0.2.1`
 
 ---
 
@@ -288,14 +311,19 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 6 – Sicherheit
 
-- [ ] Benutzereingaben überprüfen
-- [ ] HTML-Injection verhindern
-- [ ] Ausführung eingeschleusten JavaScript-Codes verhindern
-- [ ] Sicherheitstests dokumentieren
+- [x] Benutzereingaben überprüfen
+- [x] freie Texteingaben normalisieren
+- [x] maximale Eingabelänge begrenzen
+- [x] feste Eingabewerte über Allow-Lists validieren
+- [x] gespeicherte Werte erneut validieren
+- [x] unsichere HTML-Ausgabe vermeiden
+- [x] HTML-Injection verhindern
+- [x] Ausführung eingeschleusten JavaScript-Codes verhindern
+- [x] grundlegende Sicherheitstests dokumentieren
 
-**Status:** Offen
+**Status:** Abgeschlossen
 
-**Zielversion:** `v0.7.0`
+**Version:** `v0.7.0`
 
 ---
 
@@ -315,11 +343,11 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 8 – Tests und Dokumentation
 
-- [ ] Funktionstests durchführen
+- [ ] Funktionstests systematisch durchführen
 - [ ] Responsive Design testen
-- [ ] Sicherheitstests durchführen
+- [ ] Sicherheitstests vervollständigen
 - [ ] Browserkompatibilität prüfen
-- [ ] Quellcode dokumentieren
+- [ ] Quellcode überprüfen
 - [ ] README vervollständigen
 - [ ] Screenshots erstellen
 
