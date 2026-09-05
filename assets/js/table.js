@@ -4,21 +4,49 @@
 
 window.CarbonScope = window.CarbonScope || {};
 
+
 /**
  * Erstellt eine Tabelle aus den übergebenen Emissionsdaten.
  *
- * @param {Array} data Emissionsdatensätze, die dargestellt werden sollen.
- * @param {HTMLElement} container HTML-Element für die Tabelle.
- * @param {Object} sortState Aktueller Zustand der Sortierung.
+ * @param {Array} data Emissionsdatensätze.
+ * @param {HTMLElement} container Container für die Tabelle.
+ * @param {Object} sortState Aktueller Sortierzustand.
+ * @param {HTMLElement|null} statusElement Statusbereich für Screenreader.
  */
 window.CarbonScope.renderEmissionsTable = function (
     data,
     container,
-    sortState
+    sortState,
+    statusElement = null
 ) {
+
     container.replaceChildren();
 
-    if (!Array.isArray(data) || data.length === 0) {
+
+    /**
+     * Aktualisiert eine Screenreader-Rückmeldung.
+     *
+     * @param {string} message Meldung.
+     */
+    function updateStatus(message) {
+
+        if (statusElement) {
+            statusElement.textContent =
+                message;
+        }
+
+    }
+
+
+    /*
+     * Keine passenden Datensätze.
+     */
+
+    if (
+        !Array.isArray(data) ||
+        data.length === 0
+    ) {
+
         const message =
             document.createElement("p");
 
@@ -28,10 +56,21 @@ window.CarbonScope.renderEmissionsTable = function (
         message.textContent =
             "Keine passenden Emissionsdaten gefunden.";
 
-        container.appendChild(message);
+        container.appendChild(
+            message
+        );
+
+        updateStatus(
+            "Keine passenden Emissionsdaten gefunden."
+        );
 
         return;
     }
+
+
+    /*
+     * Tabelle.
+     */
 
     const table =
         document.createElement("table");
@@ -45,7 +84,9 @@ window.CarbonScope.renderEmissionsTable = function (
     );
 
 
-    /* Tabellenbeschriftung */
+    /*
+     * Tabellenbeschriftung.
+     */
 
     const caption =
         document.createElement("caption");
@@ -56,10 +97,14 @@ window.CarbonScope.renderEmissionsTable = function (
     caption.textContent =
         `${data.length} fiktive Datensätze · Angaben in Mio. t CO₂ pro Jahr`;
 
-    table.appendChild(caption);
+    table.appendChild(
+        caption
+    );
 
 
-    /* Tabellenkopf */
+    /*
+     * Tabellenkopf.
+     */
 
     const tableHead =
         document.createElement("thead");
@@ -88,7 +133,9 @@ window.CarbonScope.renderEmissionsTable = function (
         }
     ];
 
+
     headers.forEach((header) => {
+
         const th =
             document.createElement("th");
 
@@ -99,34 +146,83 @@ window.CarbonScope.renderEmissionsTable = function (
                 header.className;
         }
 
-        const isActive =
-            sortState.key === header.key;
 
-        if (isActive) {
-            th.setAttribute(
-                "aria-sort",
-                sortState.direction
-            );
-        }
+        const isActive =
+            sortState.key ===
+            header.key;
+
+
+        /*
+         * aria-sort befindet sich auf der
+         * jeweiligen Spaltenüberschrift.
+         */
+
+        th.setAttribute(
+            "aria-sort",
+            isActive
+                ? sortState.direction
+                : "none"
+        );
+
 
         const button =
-            document.createElement("button");
+            document.createElement(
+                "button"
+            );
 
         button.type = "button";
+
         button.className =
             "sort-button";
 
         button.dataset.sortKey =
             header.key;
 
+
+        /*
+         * Screenreader-Beschriftung.
+         */
+
+        if (!isActive) {
+
+            button.setAttribute(
+                "aria-label",
+                `${header.label} aufsteigend sortieren`
+            );
+
+        } else if (
+            sortState.direction ===
+            "ascending"
+        ) {
+
+            button.setAttribute(
+                "aria-label",
+                `${header.label} ist aufsteigend sortiert. Absteigend sortieren`
+            );
+
+        } else {
+
+            button.setAttribute(
+                "aria-label",
+                `${header.label} ist absteigend sortiert. Aufsteigend sortieren`
+            );
+
+        }
+
+
         const label =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
 
         label.textContent =
             header.label;
 
+
         const indicator =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
 
         indicator.className =
             "sort-indicator";
@@ -136,35 +232,61 @@ window.CarbonScope.renderEmissionsTable = function (
             "true"
         );
 
+
         if (!isActive) {
-            indicator.textContent = "↕";
+
+            indicator.textContent =
+                "↕";
+
         } else if (
-            sortState.direction === "ascending"
+            sortState.direction ===
+            "ascending"
         ) {
-            indicator.textContent = "↑";
+
+            indicator.textContent =
+                "↑";
+
         } else {
-            indicator.textContent = "↓";
+
+            indicator.textContent =
+                "↓";
+
         }
+
 
         button.append(
             label,
             indicator
         );
 
-        th.appendChild(button);
+        th.appendChild(
+            button
+        );
 
-        headerRow.appendChild(th);
+        headerRow.appendChild(
+            th
+        );
+
     });
 
-    tableHead.appendChild(headerRow);
 
-    table.appendChild(tableHead);
+    tableHead.appendChild(
+        headerRow
+    );
+
+    table.appendChild(
+        tableHead
+    );
 
 
-    /* Tabelleninhalt */
+    /*
+     * Tabelleninhalt.
+     */
 
     const tableBody =
-        document.createElement("tbody");
+        document.createElement(
+            "tbody"
+        );
 
     const numberFormatter =
         new Intl.NumberFormat(
@@ -175,27 +297,37 @@ window.CarbonScope.renderEmissionsTable = function (
             }
         );
 
+
     data.forEach((record) => {
 
         const row =
-            document.createElement("tr");
+            document.createElement(
+                "tr"
+            );
+
 
         const countryCell =
-            document.createElement("td");
+            document.createElement(
+                "td"
+            );
 
         countryCell.textContent =
             record.country;
 
 
         const companyCell =
-            document.createElement("td");
+            document.createElement(
+                "td"
+            );
 
         companyCell.textContent =
             record.company;
 
 
         const emissionsCell =
-            document.createElement("td");
+            document.createElement(
+                "td"
+            );
 
         emissionsCell.className =
             "text-end";
@@ -203,16 +335,48 @@ window.CarbonScope.renderEmissionsTable = function (
         emissionsCell.textContent =
             `${numberFormatter.format(record.emissions)} Mio. t`;
 
+
         row.append(
             countryCell,
             companyCell,
             emissionsCell
         );
 
-        tableBody.appendChild(row);
+        tableBody.appendChild(
+            row
+        );
+
     });
 
-    table.appendChild(tableBody);
 
-    container.appendChild(table);
+    table.appendChild(
+        tableBody
+    );
+
+    container.appendChild(
+        table
+    );
+
+
+    /*
+     * Screenreader-Rückmeldung.
+     */
+
+    const activeHeader =
+        headers.find(
+            (header) =>
+                header.key ===
+                sortState.key
+        );
+
+    const directionText =
+        sortState.direction ===
+        "descending"
+            ? "absteigend"
+            : "aufsteigend";
+
+    updateStatus(
+        `${data.length} Datensätze werden angezeigt. Sortiert nach ${activeHeader.label}, ${directionText}.`
+    );
+
 };

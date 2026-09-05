@@ -12,6 +12,11 @@ document.addEventListener(
                 "emissions-table-container"
             );
 
+        const tableStatus =
+            document.getElementById(
+                "table-status"
+            );
+
         const countryFilter =
             document.getElementById(
                 "country-filter"
@@ -35,15 +40,18 @@ document.addEventListener(
 
         if (
             !tableContainer ||
+            !tableStatus ||
             !countryFilter ||
             !companyFilter ||
             !resetFiltersButton
         ) {
+
             console.error(
                 "Benötigte Elemente der Emissionsansicht wurden nicht gefunden."
             );
 
             return;
+
         }
 
 
@@ -69,8 +77,7 @@ document.addEventListener(
 
 
         /*
-         * Zentraler Zustand
-         * der Emissionsansicht.
+         * Zentraler Zustand.
          */
 
         const state = {
@@ -82,35 +89,37 @@ document.addEventListener(
 
 
         /**
-         * Befüllt die Länderauswahl
-         * mit den vorhandenen Ländern.
+         * Befüllt die Länderauswahl.
          */
         function populateCountryFilter() {
 
-            countries.forEach((country) => {
+            countries.forEach(
+                (country) => {
 
-                const option =
-                    document.createElement(
-                        "option"
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+                    option.value =
+                        country;
+
+                    option.textContent =
+                        country;
+
+                    countryFilter.appendChild(
+                        option
                     );
 
-                option.value =
-                    country;
+                }
+            );
 
-                option.textContent =
-                    country;
-
-                countryFilter.appendChild(
-                    option
-                );
-            });
         }
 
 
         /**
          * Filtert und sortiert die Daten
-         * und aktualisiert anschließend
-         * die Tabelle.
+         * und aktualisiert die Tabelle.
          */
         function updateTable() {
 
@@ -132,19 +141,19 @@ document.addEventListener(
                 sortedData,
                 tableContainer,
                 {
-                    key: state.sortKey,
-                    direction: state.sortDirection
-                }
+                    key:
+                        state.sortKey,
+                    direction:
+                        state.sortDirection
+                },
+                tableStatus
             );
+
         }
 
 
         /*
          * Land filtern.
-         *
-         * Es werden ausschließlich Werte
-         * akzeptiert, die tatsächlich im
-         * Datensatz vorhanden sind.
          */
 
         countryFilter.addEventListener(
@@ -162,15 +171,13 @@ document.addEventListener(
                     state.country;
 
                 updateTable();
+
             }
         );
 
 
         /*
          * Unternehmen filtern.
-         *
-         * Freie Benutzereingaben werden
-         * vor der Verarbeitung normalisiert.
          */
 
         companyFilter.addEventListener(
@@ -189,11 +196,14 @@ document.addEventListener(
                     event.target.value !==
                     normalizedInput
                 ) {
+
                     event.target.value =
                         normalizedInput;
+
                 }
 
                 updateTable();
+
             }
         );
 
@@ -206,8 +216,11 @@ document.addEventListener(
             "click",
             () => {
 
-                state.country = "";
-                state.company = "";
+                state.country =
+                    "";
+
+                state.company =
+                    "";
 
                 state.sortKey =
                     "country";
@@ -215,10 +228,14 @@ document.addEventListener(
                 state.sortDirection =
                     "ascending";
 
-                countryFilter.value = "";
-                companyFilter.value = "";
+                countryFilter.value =
+                    "";
+
+                companyFilter.value =
+                    "";
 
                 updateTable();
+
             }
         );
 
@@ -232,23 +249,42 @@ document.addEventListener(
             "click",
             (event) => {
 
+                if (
+                    !(
+                        event.target
+                        instanceof Element
+                    )
+                ) {
+                    return;
+                }
+
+
                 const button =
                     event.target.closest(
                         "[data-sort-key]"
                     );
 
+
                 if (!button) {
                     return;
                 }
 
+
+                const shouldRestoreFocus =
+                    document.activeElement ===
+                    button;
+
+
                 const sortKey =
                     button.dataset.sortKey;
+
 
                 const allowedSortKeys = [
                     "country",
                     "company",
                     "emissions"
                 ];
+
 
                 const validatedSortKey =
                     window.CarbonScope.getAllowedValue(
@@ -259,20 +295,22 @@ document.addEventListener(
 
 
                 /*
-                 * Wird dieselbe Spalte erneut
-                 * ausgewählt, wird die
-                 * Sortierrichtung umgekehrt.
+                 * Bei erneutem Auswählen
+                 * derselben Spalte wird die
+                 * Richtung umgekehrt.
                  */
 
                 if (
                     state.sortKey ===
                     validatedSortKey
                 ) {
+
                     state.sortDirection =
                         state.sortDirection ===
                         "ascending"
                             ? "descending"
                             : "ascending";
+
                 } else {
 
                     state.sortKey =
@@ -280,9 +318,39 @@ document.addEventListener(
 
                     state.sortDirection =
                         "ascending";
+
                 }
 
+
                 updateTable();
+
+
+                /*
+                 * Da die Tabelle neu erzeugt wird,
+                 * wird der Tastaturfokus auf den
+                 * entsprechenden Sortierbutton
+                 * zurückgesetzt.
+                 */
+
+                if (shouldRestoreFocus) {
+
+                    requestAnimationFrame(
+                        () => {
+
+                            const newButton =
+                                tableContainer.querySelector(
+                                    `[data-sort-key="${validatedSortKey}"]`
+                                );
+
+                            if (newButton) {
+                                newButton.focus();
+                            }
+
+                        }
+                    );
+
+                }
+
             }
         );
 
@@ -294,5 +362,6 @@ document.addEventListener(
         populateCountryFilter();
 
         updateTable();
+
     }
 );

@@ -31,25 +31,39 @@
 
 <body class="culture-ltr">
 
+    <!-- Direktzugriff für Tastaturnutzer:innen -->
+    <a
+        class="skip-link"
+        href="#hauptinhalt"
+    >
+        Zum Hauptinhalt springen
+    </a>
+
     <header>
+
         <nav
             class="navbar navbar-expand-lg navbar-dark bg-dark"
             aria-label="Globale Navigation"
         >
+
             <div class="container">
 
                 <a
                     class="navbar-brand d-flex align-items-center gap-2"
-                    href="#start"
+                    href="#hauptinhalt"
                 >
+
                     <img
                         src="assets/img/logo.svg"
-                        alt="CarbonScope Logo"
+                        alt=""
                         width="48"
                         height="48"
                     >
 
-                    <span>CarbonScope</span>
+                    <span>
+                        CarbonScope
+                    </span>
+
                 </a>
 
                 <button
@@ -69,33 +83,39 @@
                     id="globalNavigation"
                 >
 
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav global-navigation">
 
                         <li class="nav-item">
+
                             <a
                                 class="nav-link"
                                 href="#ueberblick"
                             >
                                 Überblick
                             </a>
+
                         </li>
 
                         <li class="nav-item">
+
                             <a
                                 class="nav-link"
                                 href="#emissionen"
                             >
                                 Emissionen
                             </a>
+
                         </li>
 
                         <li class="nav-item">
+
                             <a
                                 class="nav-link"
                                 href="#informationen"
                             >
                                 Informationen
                             </a>
+
                         </li>
 
                     </ul>
@@ -114,6 +134,7 @@
                             class="form-select form-select-sm direction-select"
                             aria-label="Schriftkultur auswählen"
                         >
+
                             <option value="ltr">
                                 LTR
                             </option>
@@ -121,6 +142,7 @@
                             <option value="rtl">
                                 RTL
                             </option>
+
                         </select>
 
                     </div>
@@ -128,12 +150,20 @@
                 </div>
 
             </div>
+
         </nav>
+
     </header>
 
-    <main id="start">
+    <main
+        id="hauptinhalt"
+        tabindex="-1"
+    >
 
-        <section class="hero-section">
+        <section
+            class="hero-section"
+            aria-labelledby="page-title"
+        >
 
             <div class="container py-5">
 
@@ -145,7 +175,10 @@
                             CO₂-Emissionen transparent darstellen
                         </p>
 
-                        <h1 class="display-5 fw-bold mb-3">
+                        <h1
+                            id="page-title"
+                            class="display-5 fw-bold mb-3"
+                        >
                             CarbonScope
                         </h1>
 
@@ -169,42 +202,51 @@
 
                 <aside
                     class="col-lg-3 local-navigation-column"
-                    aria-label="Lokale Navigation"
+                    aria-labelledby="local-navigation-heading"
                 >
 
                     <nav class="local-navigation">
 
-                        <h2 class="h5">
+                        <h2
+                            id="local-navigation-heading"
+                            class="h5"
+                        >
                             Auf dieser Seite
                         </h2>
 
-                        <ul class="nav flex-column">
+                        <ul class="nav local-navigation-list">
 
                             <li class="nav-item">
+
                                 <a
                                     class="nav-link"
                                     href="#ueberblick"
                                 >
                                     Überblick
                                 </a>
+
                             </li>
 
                             <li class="nav-item">
+
                                 <a
                                     class="nav-link"
                                     href="#emissionen"
                                 >
                                     CO₂-Emissionen
                                 </a>
+
                             </li>
 
                             <li class="nav-item">
+
                                 <a
                                     class="nav-link"
                                     href="#informationen"
                                 >
                                     Informationen
                                 </a>
+
                             </li>
 
                         </ul>
@@ -218,9 +260,12 @@
                     <section
                         id="ueberblick"
                         class="content-section"
+                        aria-labelledby="ueberblick-heading"
                     >
 
-                        <h2>Überblick</h2>
+                        <h2 id="ueberblick-heading">
+                            Überblick
+                        </h2>
 
                         <p>
                             CarbonScope ermöglicht einen schnellen Überblick
@@ -234,9 +279,12 @@
                     <section
                         id="emissionen"
                         class="content-section"
+                        aria-labelledby="emissionen-heading"
                     >
 
-                        <h2>CO₂-Emissionen</h2>
+                        <h2 id="emissionen-heading">
+                            CO₂-Emissionen
+                        </h2>
 
                         <p>
                             Die folgende Tabelle zeigt fiktive jährliche
@@ -272,10 +320,13 @@
                                     <select
                                         id="country-filter"
                                         class="form-select"
+                                        aria-describedby="filter-help"
                                     >
+
                                         <option value="">
                                             Alle Länder
                                         </option>
+
                                     </select>
 
                                 </div>
@@ -296,6 +347,7 @@
                                         placeholder="Unternehmen suchen"
                                         autocomplete="off"
                                         maxlength="80"
+                                        aria-describedby="filter-help"
                                     >
 
                                 </div>
@@ -314,12 +366,34 @@
 
                             </div>
 
+                            <p
+                                id="filter-help"
+                                class="form-text mt-3 mb-0"
+                            >
+                                Land und Unternehmenssuche können miteinander
+                                kombiniert werden.
+                            </p>
+
                         </div>
+
+                        <!--
+                            Screenreader erhalten hier kurze Rückmeldungen
+                            zur Anzahl und Sortierung der Datensätze.
+                        -->
+                        <p
+                            id="table-status"
+                            class="visually-hidden"
+                            role="status"
+                            aria-live="polite"
+                            aria-atomic="true"
+                        ></p>
 
                         <div
                             id="emissions-table-container"
                             class="table-responsive"
-                            aria-live="polite"
+                            role="region"
+                            aria-label="CO₂-Emissionstabelle"
+                            tabindex="0"
                         >
 
                             <p class="text-muted mb-0">
@@ -333,9 +407,12 @@
                     <section
                         id="informationen"
                         class="content-section"
+                        aria-labelledby="informationen-heading"
                     >
 
-                        <h2>Informationen</h2>
+                        <h2 id="informationen-heading">
+                            Informationen
+                        </h2>
 
                         <p>
                             Sämtliche dargestellten Emissionswerte sind fiktiv

@@ -6,7 +6,11 @@
     --color-text: #212529;
     --color-muted: #6c757d;
     --color-border: #dee2e6;
+    --color-focus: #0d6efd;
 }
+
+
+/* Grundlayout */
 
 html {
     scroll-behavior: smooth;
@@ -17,6 +21,44 @@ body {
 
     background-color: var(--color-background);
     color: var(--color-text);
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* Direktzugriff zum Hauptinhalt */
+
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    z-index: 2000;
+
+    padding: 0.75rem 1rem;
+
+    color: #ffffff;
+    background-color: #212529;
+
+    border-radius: 0 0 0.5rem 0.5rem;
+
+    transform: translateY(-120%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+
+/* Sichtbare Tastatur-Fokuszustände */
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+    outline: 0.2rem solid var(--color-focus);
+    outline-offset: 0.15rem;
 }
 
 
@@ -30,10 +72,14 @@ body {
 .navbar-brand img {
     display: block;
 
-    width: 48px;
-    height: 48px;
+    width: 3rem;
+    height: 3rem;
 
     object-fit: contain;
+}
+
+.global-navigation {
+    margin-inline-start: auto;
 }
 
 
@@ -44,13 +90,13 @@ body {
     align-items: center;
     gap: 0.5rem;
 
-    margin-left: 1rem;
+    margin-inline-start: 1rem;
 }
 
 .direction-label {
     margin: 0;
 
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.8);
 
     font-size: 0.875rem;
     white-space: nowrap;
@@ -58,7 +104,7 @@ body {
 
 .direction-select {
     width: auto;
-    min-width: 80px;
+    min-width: 5rem;
 }
 
 
@@ -94,100 +140,24 @@ body {
     border-radius: 0.75rem;
 }
 
+.local-navigation-list {
+    flex-direction: column;
+}
+
 .local-navigation .nav-link {
-    padding-left: 0;
-    padding-right: 0;
+    padding-block: 0.5rem;
+    padding-inline: 0;
 
     color: var(--color-muted);
 }
 
 .local-navigation .nav-link:hover,
-.local-navigation .nav-link:focus {
+.local-navigation .nav-link:focus-visible {
     color: var(--color-primary);
 }
 
 
-/* Inhaltsbereiche */
-
-.content-section {
-    margin-bottom: 2rem;
-    padding: 2rem;
-
-    background-color: var(--color-surface);
-
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-}
-
-.content-section h2 {
-    margin-bottom: 1rem;
-}
-
-
-/* Filter */
-
-.filter-panel {
-    padding: 1rem;
-
-    background-color: var(--color-background);
-
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-}
-
-
-/* Emissionstabelle */
-
-.table-responsive {
-    overflow-x: auto;
-
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-}
-
-.table {
-    margin-bottom: 0;
-}
-
-.table caption {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-}
-
-.sort-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-
-    width: 100%;
-    padding: 0;
-
-    color: inherit;
-
-    font: inherit;
-    font-weight: 600;
-    text-align: left;
-
-    background: transparent;
-
-    border: 0;
-}
-
-.table th.text-end .sort-button {
-    justify-content: flex-end;
-}
-
-.sort-button:hover,
-.sort-button:focus-visible {
-    text-decoration: underline;
-}
-
-.sort-indicator {
-    font-size: 0.9rem;
-}
-
-
-/* Schriftkultur und Position der lokalen Navigation */
+/* LTR- und RTL-Schriftkultur */
 
 @media (min-width: 992px) {
 
@@ -210,6 +180,119 @@ body {
 }
 
 
+/* Inhaltsbereiche */
+
+.content-section {
+    margin-bottom: 2rem;
+    padding: 2rem;
+
+    background-color: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+}
+
+.content-section h2 {
+    margin-bottom: 1rem;
+}
+
+.content-section[id] {
+    scroll-margin-top: 1rem;
+}
+
+
+/* Filter */
+
+.filter-panel {
+    padding: 1rem;
+
+    background-color: var(--color-background);
+
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+}
+
+.filter-panel .form-control,
+.filter-panel .form-select,
+.filter-panel .btn {
+    min-height: 2.75rem;
+}
+
+
+/* Emissionstabelle */
+
+.table-responsive {
+    overflow-x: auto;
+
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+}
+
+.table-responsive:focus-visible {
+    outline: 0.2rem solid var(--color-focus);
+    outline-offset: 0.2rem;
+}
+
+.table {
+    min-width: 42rem;
+    margin-bottom: 0;
+}
+
+.table caption {
+    padding-inline: 0.75rem;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+.table td:last-child,
+.table th:last-child {
+    white-space: nowrap;
+}
+
+.sort-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.4rem 0;
+
+    color: inherit;
+
+    font: inherit;
+    font-weight: 600;
+    text-align: start;
+
+    background: transparent;
+
+    border: 0;
+}
+
+.table th.text-end .sort-button {
+    justify-content: flex-end;
+}
+
+.sort-button:hover {
+    text-decoration: underline;
+}
+
+.sort-button:focus-visible {
+    text-decoration: underline;
+
+    outline-color: #ffffff;
+}
+
+.sort-indicator {
+    flex-shrink: 0;
+
+    font-size: 0.9rem;
+}
+
+
 /* Footer */
 
 .site-footer {
@@ -225,12 +308,12 @@ body {
 }
 
 .site-footer a:hover,
-.site-footer a:focus {
+.site-footer a:focus-visible {
     color: #d1e7dd;
 }
 
 
-/* Responsive Anpassungen */
+/* Tablet und kleinere Geräte */
 
 @media (max-width: 991.98px) {
 
@@ -238,17 +321,101 @@ body {
         position: static;
     }
 
+    .global-navigation {
+        margin-inline-start: 0;
+    }
+
     .direction-control {
         margin-top: 1rem;
-        margin-left: 0;
+        margin-inline-start: 0;
+        margin-bottom: 0.5rem;
     }
 
 }
 
-@media (max-width: 575.98px) {
+
+/* Smartphone */
+
+@media (max-width: 767.98px) {
+
+    .hero-section .container {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .hero-section .display-5 {
+        font-size: 2rem;
+    }
+
+    .local-navigation {
+        padding: 1rem;
+    }
+
+    .local-navigation-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .local-navigation .nav-link {
+        padding: 0.45rem 0.7rem;
+
+        background-color: var(--color-background);
+
+        border: 1px solid var(--color-border);
+        border-radius: 0.4rem;
+    }
 
     .content-section {
         padding: 1.25rem;
+    }
+
+    .filter-panel {
+        padding: 1rem;
+    }
+
+    .site-footer {
+        margin-top: 2rem;
+    }
+
+}
+
+
+/* Sehr kleine Smartphone-Displays */
+
+@media (max-width: 399.98px) {
+
+    .navbar-brand img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .content-section {
+        padding: 1rem;
+    }
+
+}
+
+
+/* Reduzierte Animationen bei entsprechender Systemeinstellung */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 
 }
