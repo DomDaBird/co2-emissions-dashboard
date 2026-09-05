@@ -61,17 +61,17 @@ Die Schriftkultur kann manuell ausgewählt werden. Zusätzlich wird eine grundle
 
 ### REQ-05 – Responsive Design
 
-Die Anwendung soll auf unterschiedlichen Bildschirmgrößen nutzbar sein:
+Die Anwendung ist für unterschiedliche Bildschirmgrößen ausgelegt:
 
 - Desktop
 - Tablet
 - Smartphone
 
-Für die Umsetzung werden Bootstrap sowie eigenes CSS eingesetzt.
+Für die Umsetzung werden Bootstrap sowie eigenes CSS und Media Queries eingesetzt.
 
-Eine grundlegende responsive Darstellung ist bereits vorhanden. Die systematische Optimierung und Überprüfung erfolgt in einer späteren Entwicklungsphase.
+Auf kleineren Bildschirmgrößen werden Navigation, Inhaltsbereiche und Filter neu angeordnet. Die Emissionstabelle besitzt bei begrenzter Breite einen eigenen horizontalen Scrollbereich, sodass die gesamte Seite nicht horizontal verschoben werden muss.
 
-**Status:** Teilweise erfüllt
+**Status:** Erfüllt
 
 ---
 
@@ -172,6 +172,8 @@ Initialisierung und zentrale Steuerung der Anwendung.
 
 Verwaltet den aktuellen Zustand der Filterung und Sortierung und verwendet Sicherheitsfunktionen zur Validierung der verarbeiteten Werte.
 
+Nach der Neudarstellung einer sortierten Tabelle wird der Tastaturfokus bei Bedarf auf die zuvor verwendete Sortierschaltfläche zurückgesetzt.
+
 ### `data.js`
 
 Enthält die fiktiven CO₂-Emissionsdaten.
@@ -215,9 +217,20 @@ Stellt sortierbare Tabellenüberschriften sowie die aktuelle Sortierrichtung dar
 
 Dynamische Tabelleninhalte werden als Text über DOM-Operationen wie `textContent` eingefügt.
 
+Zusätzlich werden ARIA-Sortierzustände und Statusmeldungen für unterstützende Technologien bereitgestellt.
+
 ### `styles.css`
 
 Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
+
+Die Datei enthält unter anderem:
+
+- responsive Anpassungen für verschiedene Bildschirmgrößen
+- sichtbare Fokuszustände
+- Darstellung des Skip-Links
+- mobile Navigation
+- horizontal scrollbar dargestellte Tabelle
+- Berücksichtigung reduzierter Animationen
 
 ---
 
@@ -329,22 +342,29 @@ Enthält projektspezifische CSS-Regeln und ergänzt das Bootstrap-Layout.
 
 ### Phase 7 – Responsive Design und Barrierearmut
 
-- [ ] Desktopdarstellung optimieren
-- [ ] Tabletdarstellung optimieren
-- [ ] Smartphonedarstellung optimieren
-- [ ] Tastaturbedienbarkeit überprüfen
-- [ ] semantisches HTML und Beschriftungen überprüfen
+- [x] Desktopdarstellung optimieren
+- [x] Tabletdarstellung optimieren
+- [x] Smartphonedarstellung optimieren
+- [x] mobile Navigation überprüfen
+- [x] Tabelle für kleine Bildschirmgrößen optimieren
+- [x] Tastaturbedienbarkeit überprüfen
+- [x] sichtbare Fokuszustände ergänzen
+- [x] Skip-Link ergänzen
+- [x] Tastaturfokus nach Sortierung erhalten
+- [x] semantisches HTML und Beschriftungen überprüfen
+- [x] Screenreader-Rückmeldungen ergänzen
+- [x] reduzierte Animationen berücksichtigen
 
-**Status:** Offen
+**Status:** Abgeschlossen
 
-**Zielversion:** `v0.8.0`
+**Version:** `v0.8.0`
 
 ---
 
 ### Phase 8 – Tests und Dokumentation
 
 - [ ] Funktionstests systematisch durchführen
-- [ ] Responsive Design testen
+- [ ] Responsive Design abschließend testen
 - [ ] Sicherheitstests vervollständigen
 - [ ] Browserkompatibilität prüfen
 - [ ] Quellcode überprüfen
@@ -384,6 +404,7 @@ Das Projekt gilt als abgeschlossen, wenn:
 - die Position der lokalen Navigation unterschiedliche Schriftkulturen berücksichtigt
 - Benutzereingaben keinen injizierten Code ausführen können
 - die Anwendung auf Desktop, Tablet und Smartphone funktioniert
+- die Anwendung grundlegend per Tastatur bedienbar ist
 - der Quellcode strukturiert und dokumentiert ist
 - die definierten Testfälle erfolgreich durchgeführt wurden
 - die Anwendung über GitHub Pages erreichbar ist

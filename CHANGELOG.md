@@ -1,11 +1,3 @@
-
----
-
-# `CHANGELOG.md` vollständig
-
-Hier bitte wirklich den **gesamten bisherigen Inhalt löschen**, damit der versehentlich hineinkopierte Chat-Text verschwindet. :contentReference[oaicite:2]{index=2}
-
-```markdown
 # Changelog
 
 In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Projekts festgehalten.
@@ -14,11 +6,36 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 
 ### Geplant
 
-- weitere Optimierung des Responsive Designs
-- Überprüfung der Barrierearmut
 - systematische Funktions- und Browsertests
 - Vervollständigung der Projektdokumentation
+- Erstellung von Screenshots
+- abschließende Validierung des Quellcodes
 - Veröffentlichung über GitHub Pages
+
+## [0.8.0] - 2026-09-05
+
+### Hinzugefügt
+
+- Skip-Link zum direkten Wechsel in den Hauptinhalt
+- sichtbare Fokuszustände für Tastaturbedienung
+- Screenreader-Statusbereich für die Emissionstabelle
+- ARIA-Beschriftungen für sortierbare Tabellenüberschriften
+- ARIA-Sortierzustände für Tabellenspalten
+- semantische Beschriftungen der Inhaltsbereiche
+- Hilfetext für die kombinierte Filterung
+- Unterstützung der Systemeinstellung für reduzierte Animationen
+
+### Geändert
+
+- Desktop-, Tablet- und Smartphone-Darstellung weiter optimiert
+- lokale Navigation auf kleinen Bildschirmen kompakter dargestellt
+- Filterelemente für mobile Bildschirmgrößen optimiert
+- Tabelle erhält auf kleinen Bildschirmgrößen einen eigenen horizontalen Scrollbereich
+- Tabellenüberschriften für eine bessere Tastaturbedienung erweitert
+- Tastaturfokus wird nach einer Sortierung wiederhergestellt
+- Logo als dekoratives Bild für Screenreader gekennzeichnet, da der Anwendungsname direkt daneben als Text vorhanden ist
+- Fokus- und Hover-Zustände vereinheitlicht
+- semantische HTML- und ARIA-Struktur erweitert
 
 ## [0.7.0] - 2026-09-05
 
@@ -47,7 +64,7 @@ In diesem Dokument werden wichtige Änderungen und Entwicklungsstände des Proje
 - XSS-Test mit `script`-Element erfolgreich durchgeführt
 - XSS-Test mit ereignisbasierter HTML-Eingabe erfolgreich durchgeführt
 - eingegebener Code wurde bei den durchgeführten Tests nicht ausgeführt
-- dynamische Tabelleninhalte werden weiterhin über `textContent` ausgegeben
+- dynamische Tabelleninhalte werden über `textContent` ausgegeben
 
 ## [0.6.0] - 2026-09-04
 

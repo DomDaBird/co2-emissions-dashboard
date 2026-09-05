@@ -7,9 +7,9 @@ Das Projekt entsteht im Rahmen des IU-Kurses
 
 ## Projektstatus
 
-Sichere Verarbeitung von Benutzereingaben und Schutz vor der Ausführung injizierten Codes umgesetzt.
+Responsive Design und grundlegende Barrierearmut der Webanwendung umgesetzt und optimiert.
 
-Aktuelle Version: `v0.7.0`
+Aktuelle Version: `v0.8.0`
 
 ### Aktueller Entwicklungsstand
 
@@ -36,20 +36,30 @@ Aktuelle Version: `v0.7.0`
 - freie Texteingaben normalisiert und in ihrer Länge begrenzt
 - Eingaben mit festgelegten Werten über Allow-Lists validiert
 - gespeicherte Werte aus `localStorage` erneut validiert
-- dynamische Textausgaben ausschließlich als Text verarbeitet
+- dynamische Textausgaben sicher verarbeitet
 - grundlegende HTML-Injection- und XSS-Tests erfolgreich durchgeführt
+- Desktop-, Tablet- und Smartphone-Darstellung optimiert
+- responsive Emissionstabelle mit horizontalem Scrollbereich umgesetzt
+- sichtbare Tastatur-Fokuszustände ergänzt
+- Skip-Link zum Hauptinhalt integriert
+- Sortierfunktionen für die Tastaturbedienung optimiert
+- Screenreader-Rückmeldungen für Tabelle und Sortierung ergänzt
+- semantische Beschriftungen und ARIA-Attribute erweitert
+- Einstellung für reduzierte Animationen berücksichtigt
 
-Als nächster Schritt werden das Responsive Design und die grundlegende Barrierearmut der Anwendung systematisch überprüft und optimiert.
+Als nächster Schritt werden die Funktionen der Anwendung systematisch getestet, die Browserkompatibilität überprüft und die Projektdokumentation vervollständigt.
 
-## Geplante weitere Funktionen
+## Geplante weitere Schritte
 
-- weitere Optimierung für Desktop, Tablet und Smartphone
-- Überprüfung der Tastaturbedienbarkeit
-- Überprüfung semantischer HTML-Strukturen und Beschriftungen
-- systematische Funktionstests
+- systematische Funktionstests durchführen
+- Responsive Design abschließend testen
+- Sicherheitstests vervollständigen
 - Browserkompatibilität prüfen
+- Quellcode überprüfen
 - Projektdokumentation vervollständigen
-- Veröffentlichung über GitHub Pages
+- Screenshots erstellen
+- HTML, CSS und JavaScript abschließend validieren
+- Anwendung über GitHub Pages veröffentlichen
 
 ## Sicherheitskonzept
 
@@ -65,6 +75,23 @@ Zur Absicherung verwendet CarbonScope unter anderem:
 - Verzicht auf die Verarbeitung von Benutzereingaben über `innerHTML`
 
 Dadurch werden eingegebene HTML- oder JavaScript-Inhalte nicht als ausführbarer Code interpretiert.
+
+## Responsive Design und Barrierearmut
+
+Die Benutzeroberfläche wurde für unterschiedliche Bildschirmgrößen optimiert.
+
+Dabei werden unter anderem folgende Maßnahmen eingesetzt:
+
+- responsives Layout mit Bootstrap und eigenen Media Queries
+- angepasste Navigation für Desktop, Tablet und Smartphone
+- horizontal scrollbar dargestellte Tabelle auf kleinen Bildschirmen
+- Skip-Link zum direkten Wechsel in den Hauptinhalt
+- sichtbare Fokuszustände für Tastaturnutzer:innen
+- vollständig per Tastatur bedienbare Sortierfunktionen
+- Wiederherstellung des Tastaturfokus nach einer Sortierung
+- Screenreader-Rückmeldungen zur Anzahl und Sortierung der Datensätze
+- semantische HTML-Elemente und ARIA-Beschriftungen
+- Berücksichtigung der Systemeinstellung für reduzierte Animationen
 
 ## Technologien
 

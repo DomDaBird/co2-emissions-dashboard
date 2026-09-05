@@ -13,6 +13,7 @@ Während der Entwicklung werden folgende Bereiche überprüft:
 - Browserkompatibilität
 - sichere Verarbeitung von Benutzereingaben
 - grundlegende Barrierearmut
+- Tastaturbedienbarkeit
 
 ## 2. Geplante Testumgebungen
 
@@ -26,13 +27,13 @@ Zusätzlich werden unterschiedliche Bildschirmgrößen über die Entwicklerwerkz
 
 ## 3. Aktueller Status
 
-Die Grundstruktur der Webanwendung, die dynamische Darstellung der fiktiven CO₂-Emissionsdaten, die Filter- und Sortierfunktionen, die Berücksichtigung unterschiedlicher Schriftkulturen sowie grundlegende Sicherheitsmaßnahmen sind umgesetzt.
+Die Grundstruktur der Webanwendung, die dynamische Darstellung der fiktiven CO₂-Emissionsdaten, die Filter- und Sortierfunktionen, die Berücksichtigung unterschiedlicher Schriftkulturen, grundlegende Sicherheitsmaßnahmen sowie responsive und barrierearme Bedienfunktionen sind umgesetzt.
 
-Für Version `v0.7.0` wurden gezielte Sicherheitstests mit normalen Texteingaben, HTML-ähnlichen Eingaben und JavaScript-ähnlichen Angriffsmustern durchgeführt.
+Für Version `v0.7.0` wurden gezielte Sicherheitstests durchgeführt.
 
-Bei den durchgeführten Sicherheitstests wurde kein eingegebener Code ausgeführt.
+Für Version `v0.8.0` wurden die Darstellung auf unterschiedlichen Bildschirmgrößen sowie grundlegende Funktionen der Tastaturbedienbarkeit überprüft.
 
-Eine vollständige und systematische Testphase mit Funktionstests, Responsive Tests und Browserkompatibilität ist für Version `v0.9.0` vorgesehen.
+Eine vollständige systematische Testphase mit allen Funktionstests und der Browserkompatibilität ist für Version `v0.9.0` vorgesehen.
 
 ## 4. Funktionstests für Filterung und Sortierung
 
@@ -62,25 +63,24 @@ Eine vollständige und systematische Testphase mit Funktionstests, Responsive Te
 | SK-03 | Zwischen LTR und RTL wechseln | Nur die Position der lokalen Navigation verändert sich | Bestanden |
 | SK-04 | RTL auswählen | Deutsche Texte, Filter und Tabelle bleiben normal lesbar | Bestanden |
 | SK-05 | Schriftkultur auswählen und Seite neu laden | Auswahl bleibt durch lokale Speicherung erhalten | Offen |
-| SK-06 | Ansicht auf Smartphone beziehungsweise Tablet prüfen | Lokale Navigation bleibt in der gestapelten Darstellung nutzbar | Offen |
+| SK-06 | Ansicht auf Smartphone beziehungsweise Tablet prüfen | Lokale Navigation bleibt in der gestapelten Darstellung nutzbar | Bestanden |
 
 ## 6. Sicherheitstests
 
 Die sichere Verarbeitung von Benutzereingaben wurde in Version `v0.7.0` gezielt überprüft.
-
-### Durchgeführte Tests
 
 | ID | Eingabe beziehungsweise Test | Erwartetes Ergebnis | Status |
 |---|---|---|---|
 | SEC-01 | Normale Unternehmenssuche mit `Nord` | Reguläre Filterfunktion bleibt erhalten | Bestanden |
 | SEC-02 | HTML-ähnliche Eingabe `<b>EcoForge</b>` | Eingabe wird nicht als HTML dargestellt oder ausgeführt | Bestanden |
 | SEC-03 | JavaScript-Eingabe über ein `script`-Element | Kein JavaScript wird ausgeführt und kein Dialog erscheint | Bestanden |
-| SEC-04 | HTML-Eingabe mit einem ereignisbasierten JavaScript-Handler | Kein JavaScript wird ausgeführt und kein Dialog erscheint | Bestanden |
+| SEC-04 | HTML-Eingabe mit ereignisbasiertem JavaScript-Handler | Kein JavaScript wird ausgeführt und kein Dialog erscheint | Bestanden |
 | SEC-05 | Eingabe mit mehr als 80 Zeichen | Unternehmenssuchfeld akzeptiert maximal 80 Zeichen | Bestanden |
+| SEC-06 | Sicherheitstests nach den Änderungen von v0.8 wiederholen | Weiterhin keine Ausführung injizierten Codes | Bestanden |
 
 ### Verwendete Sicherheitsmaßnahmen
 
-Die Anwendung verwendet folgende Maßnahmen:
+Die Anwendung verwendet unter anderem:
 
 - Normalisierung freier Texteingaben
 - Begrenzung der maximalen Eingabelänge
@@ -89,21 +89,33 @@ Die Anwendung verwendet folgende Maßnahmen:
 - Ausgabe dynamischer Tabelleninhalte über `textContent`
 - Verzicht auf die Ausgabe von Benutzereingaben über `innerHTML`
 
-Die Tests zeigen für die geprüften Eingabefälle, dass HTML- und JavaScript-ähnliche Eingaben nicht als ausführbarer Code interpretiert werden.
-
 ## 7. Responsive Tests
 
-Die responsive Darstellung wird in einer späteren Entwicklungsphase systematisch überprüft.
+| ID | Testfall | Erwartetes Ergebnis | Status |
+|---|---|---|---|
+| RD-01 | Desktopansicht mit großer Bildschirmbreite | Lokale Navigation und Hauptinhalt werden nebeneinander dargestellt | Bestanden |
+| RD-02 | Tabletansicht mit etwa 768 Pixel Breite | Lokale Navigation wird oberhalb des Hauptinhalts dargestellt | Bestanden |
+| RD-03 | Smartphoneansicht mit etwa 375 Pixel Breite | Inhalte und Filter werden vollständig lesbar dargestellt | Bestanden |
+| RD-04 | Smartphoneansicht mit etwa 320 Pixel Breite | Die gesamte Seite besitzt keine unnötige horizontale Scrollbewegung | Bestanden |
+| RD-05 | Emissionstabelle auf kleinem Bildschirm | Nur der Tabellenbereich kann horizontal gescrollt werden | Bestanden |
+| RD-06 | Mobile globale Navigation | Navigation wird über das Bootstrap-Menü ein- und ausgeklappt | Bestanden |
+| RD-07 | Lokale Navigation auf Smartphone | Links werden kompakt und nutzbar dargestellt | Bestanden |
 
-Dabei werden mindestens folgende Ansichten berücksichtigt:
+## 8. Tests der Tastaturbedienbarkeit und Barrierearmut
 
-- Desktop
-- Tablet
-- Smartphone
+| ID | Testfall | Erwartetes Ergebnis | Status |
+|---|---|---|---|
+| ACC-01 | Tab-Taste am Seitenanfang verwenden | Skip-Link „Zum Hauptinhalt springen“ wird sichtbar | Bestanden |
+| ACC-02 | Skip-Link mit Enter aktivieren | Fokus wechselt zum Hauptinhalt | Bestanden |
+| ACC-03 | Mit Tab durch die Anwendung navigieren | Interaktive Elemente sind per Tastatur erreichbar | Bestanden |
+| ACC-04 | Sortierbutton mit Enter bedienen | Tabelle wird entsprechend sortiert | Bestanden |
+| ACC-05 | Sortierbutton mit Leertaste bedienen | Tabelle wird entsprechend sortiert | Bestanden |
+| ACC-06 | Sortierung per Tastatur ausführen | Fokus bleibt auf der gewählten Sortierspalte | Bestanden |
+| ACC-07 | Tastaturfokus auf Links, Eingaben und Buttons | Fokus ist visuell deutlich erkennbar | Bestanden |
+| ACC-08 | Emissionstabelle aktualisieren | Statusbereich erhält eine textuelle Rückmeldung zur Darstellung und Sortierung | Bestanden |
+| ACC-09 | Browserkonsole während der Tests prüfen | Keine roten JavaScript-Fehler | Bestanden |
 
-Die Darstellung der Navigation, Filterelemente und Emissionstabelle wird insbesondere auf Lesbarkeit, Bedienbarkeit und horizontale Überläufe geprüft.
-
-## 8. Browserkompatibilität
+## 9. Browserkompatibilität
 
 Die abschließende Browserprüfung ist für Version `v0.9.0` vorgesehen.
 
@@ -112,3 +124,5 @@ Geprüft werden mindestens:
 - Google Chrome
 - Mozilla Firefox
 - Apple Safari
+
+**Status:** Offen
