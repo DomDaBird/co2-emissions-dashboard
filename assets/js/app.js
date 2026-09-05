@@ -52,6 +52,23 @@ document.addEventListener(
 
 
         /*
+         * Erlaubte Länderwerte werden
+         * ausschließlich aus dem lokalen
+         * Datensatz erzeugt.
+         */
+
+        const countries =
+            window.CarbonScope.getCountries(
+                data
+            );
+
+        const allowedCountries = [
+            "",
+            ...countries
+        ];
+
+
+        /*
          * Zentraler Zustand
          * der Emissionsansicht.
          */
@@ -69,11 +86,6 @@ document.addEventListener(
          * mit den vorhandenen Ländern.
          */
         function populateCountryFilter() {
-
-            const countries =
-                window.CarbonScope.getCountries(
-                    data
-                );
 
             countries.forEach((country) => {
 
@@ -128,7 +140,11 @@ document.addEventListener(
 
 
         /*
-         * Land filtern
+         * Land filtern.
+         *
+         * Es werden ausschließlich Werte
+         * akzeptiert, die tatsächlich im
+         * Datensatz vorhanden sind.
          */
 
         countryFilter.addEventListener(
@@ -136,7 +152,14 @@ document.addEventListener(
             (event) => {
 
                 state.country =
-                    event.target.value;
+                    window.CarbonScope.getAllowedValue(
+                        event.target.value,
+                        allowedCountries,
+                        ""
+                    );
+
+                countryFilter.value =
+                    state.country;
 
                 updateTable();
             }
@@ -144,15 +167,31 @@ document.addEventListener(
 
 
         /*
-         * Unternehmen filtern
+         * Unternehmen filtern.
+         *
+         * Freie Benutzereingaben werden
+         * vor der Verarbeitung normalisiert.
          */
 
         companyFilter.addEventListener(
             "input",
             (event) => {
 
+                const normalizedInput =
+                    window.CarbonScope.normalizeTextInput(
+                        event.target.value
+                    );
+
                 state.company =
-                    event.target.value;
+                    normalizedInput;
+
+                if (
+                    event.target.value !==
+                    normalizedInput
+                ) {
+                    event.target.value =
+                        normalizedInput;
+                }
 
                 updateTable();
             }
@@ -160,7 +199,7 @@ document.addEventListener(
 
 
         /*
-         * Filter zurücksetzen
+         * Filter zurücksetzen.
          */
 
         resetFiltersButton.addEventListener(
@@ -205,6 +244,19 @@ document.addEventListener(
                 const sortKey =
                     button.dataset.sortKey;
 
+                const allowedSortKeys = [
+                    "country",
+                    "company",
+                    "emissions"
+                ];
+
+                const validatedSortKey =
+                    window.CarbonScope.getAllowedValue(
+                        sortKey,
+                        allowedSortKeys,
+                        "country"
+                    );
+
 
                 /*
                  * Wird dieselbe Spalte erneut
@@ -213,7 +265,8 @@ document.addEventListener(
                  */
 
                 if (
-                    state.sortKey === sortKey
+                    state.sortKey ===
+                    validatedSortKey
                 ) {
                     state.sortDirection =
                         state.sortDirection ===
@@ -223,7 +276,7 @@ document.addEventListener(
                 } else {
 
                     state.sortKey =
-                        sortKey;
+                        validatedSortKey;
 
                     state.sortDirection =
                         "ascending";

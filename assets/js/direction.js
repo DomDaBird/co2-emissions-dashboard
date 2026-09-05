@@ -10,6 +10,15 @@ window.CarbonScope.directionStorageKey =
 
 
 /**
+ * Zulässige Werte für die Schriftkultur.
+ */
+window.CarbonScope.allowedWritingDirections = [
+    "ltr",
+    "rtl"
+];
+
+
+/**
  * Erkennt anhand der Browsersprache,
  * ob üblicherweise eine LTR- oder
  * RTL-Schriftkultur verwendet wird.
@@ -43,6 +52,9 @@ window.CarbonScope.detectWritingDirection = function () {
  * Liest eine zuvor gespeicherte
  * Auswahl aus dem Browser.
  *
+ * Auch Werte aus localStorage werden
+ * grundsätzlich erneut validiert.
+ *
  * @returns {string|null}
  */
 window.CarbonScope.getSavedWritingDirection = function () {
@@ -54,12 +66,14 @@ window.CarbonScope.getSavedWritingDirection = function () {
                 window.CarbonScope.directionStorageKey
             );
 
-        if (
-            savedDirection === "ltr" ||
-            savedDirection === "rtl"
-        ) {
-            return savedDirection;
-        }
+        const validatedDirection =
+            window.CarbonScope.getAllowedValue(
+                savedDirection,
+                window.CarbonScope.allowedWritingDirections,
+                null
+            );
+
+        return validatedDirection;
 
     } catch (error) {
 
@@ -68,14 +82,14 @@ window.CarbonScope.getSavedWritingDirection = function () {
             error
         );
 
+        return null;
     }
-
-    return null;
 };
 
 
 /**
- * Speichert die ausgewählte Schriftkultur.
+ * Speichert ausschließlich eine
+ * validierte Schriftkultur.
  *
  * @param {string} direction "ltr" oder "rtl"
  */
@@ -83,11 +97,18 @@ window.CarbonScope.saveWritingDirection = function (
     direction
 ) {
 
+    const validatedDirection =
+        window.CarbonScope.getAllowedValue(
+            direction,
+            window.CarbonScope.allowedWritingDirections,
+            "ltr"
+        );
+
     try {
 
         localStorage.setItem(
             window.CarbonScope.directionStorageKey,
-            direction
+            validatedDirection
         );
 
     } catch (error) {
@@ -114,10 +135,12 @@ window.CarbonScope.applyWritingDirection = function (
     direction
 ) {
 
-    const normalizedDirection =
-        direction === "rtl"
-            ? "rtl"
-            : "ltr";
+    const validatedDirection =
+        window.CarbonScope.getAllowedValue(
+            direction,
+            window.CarbonScope.allowedWritingDirections,
+            "ltr"
+        );
 
     document.body.classList.remove(
         "culture-ltr",
@@ -125,10 +148,10 @@ window.CarbonScope.applyWritingDirection = function (
     );
 
     document.body.classList.add(
-        `culture-${normalizedDirection}`
+        `culture-${validatedDirection}`
     );
 
-    return normalizedDirection;
+    return validatedDirection;
 };
 
 
@@ -156,9 +179,12 @@ document.addEventListener(
         const savedDirection =
             window.CarbonScope.getSavedWritingDirection();
 
+        const detectedDirection =
+            window.CarbonScope.detectWritingDirection();
+
         const initialDirection =
             savedDirection ||
-            window.CarbonScope.detectWritingDirection();
+            detectedDirection;
 
         const appliedDirection =
             window.CarbonScope.applyWritingDirection(
@@ -177,6 +203,9 @@ document.addEventListener(
                     window.CarbonScope.applyWritingDirection(
                         event.target.value
                     );
+
+                directionSelect.value =
+                    direction;
 
                 window.CarbonScope.saveWritingDirection(
                     direction
